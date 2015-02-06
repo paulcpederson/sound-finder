@@ -1,13 +1,11 @@
-import logger from './logger.js'
-import http from './http.js'
+import http from './http.js';
+import SC from './sound-cloud.js';
 
-http.get('http://google.com').then(
-  function (value) {
-      console.log('Contents: ' + value);
+var sc = SC('739b39925c3cc275aeb03837ff27762c');
+
+sc.userID('paulcpederson').then(
+  (value) => {
+    sc.favorites(value.id).then( thing => console.log(thing) )
   },
-  function (reason) {
-      console.error('Something went wrong', reason);
-  }
+  (reason) => { console.error('Something went wrong', reason); }
 );
-
-console.log('ok, cool');
