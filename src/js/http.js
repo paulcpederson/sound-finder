@@ -2,9 +2,9 @@
 let request = () => {
 
   // progress checks
-  let inProgress = (rq) => { return rq.status === 200 || rq.status === 0 };
-  let completed  = (rq) => { return rq.readyState === 4 };
-  let isJSON = (rq) => { return rq.getResponseHeader('content-type').indexOf('application/json') > -1 };
+  let inProgress = rq => rq.status === 200 || rq.status === 0;
+  let completed  = rq => rq.readyState === 4;
+  let isJSON = rq => rq.getResponseHeader('content-type').indexOf('application/json') > -1;
 
   var http = {
     /**
@@ -38,7 +38,7 @@ let request = () => {
           }
         };
         form = http.encodeForm(form);
-        rq.onerror = () => { reject(new Error('XMLHttpRequest Error: ' + rq.statusText)); };
+        rq.onerror = () => reject(new Error('XMLHttpRequest Error: ' + rq.statusText));
         rq.open('get', `${url}?${form}`, true);
         rq.send();
       });
