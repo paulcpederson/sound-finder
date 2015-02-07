@@ -7,8 +7,8 @@
     "prepublish": "mkdir -p dist && npm run compile && npm run sass",
     "compile": "browserify -e src/js/index.js -d -t [ 6to5ify --sourceMapRelative .] -o dist/bundle.js",
     "watch:js": "fsmonitor -d src/js/ npm run compile",
+    "watch:sass": "fsmonitor -d src/sass/ npm run sass",
     "sass": "node-sass -r --include-path node_modules/scss-utils/ src/sass/style.scss -o dist/",
-    "watch:sass": "node-sass -w -r --include-path node_modules/scss-utils/ src/sass/style.scss -o dist/",
     "img": "imageoptim -d src/img/",
     "predev": "npm run prepublish",
     "dev": "parallelshell 'live-server' 'npm run watch:js' 'npm run watch:sass'"

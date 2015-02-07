@@ -9,14 +9,19 @@
   </head>
   <body>
     <main class="fullscreen">
-      <h1>OK DUDE</h1>
-      <input type="text" id="username" placeholder="soundcloud username">
-      <div class="users" id="users">
-        {{#users}}
-          <b>{{name}}</b>
-        {{/users}}
+      <div class="container">
+        <h1 class="title">Soundfinder</h1>
+        <form>
+          <input type="text" class="username-search" id="username" placeholder="soundcloud username" autocomplete="off">
+          <input type="submit" hidden>
+        </form>
       </div>
     </main>
+    <div class="users" id="users">
+      {{#users}}
+        <b>{{name}}</b>
+      {{/users}}
+    </div>
     <script src="dist/bundle.js"></script>
   </body>
 </html>
