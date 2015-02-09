@@ -11,6 +11,11 @@ $bold: 'HelveticaNeue-Bold', 'Helvetica Neue Bold', $fallbacks;
   font-family: $bold;
 }
 
+@mixin light() {
+  font-weight: 200;
+  font-family: $light;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -23,8 +28,22 @@ body {
   @include box-sizing(border-box);
   margin-left: auto;
   margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
   position: relative;
   z-index: 2;
+}
+
+.right {
+  float: right;
+}
+
+.ilb {
+  display: inline-block;
+}
+
+.leader-30 {
+  margin-top: 30vh;
 }
 
 .fullscreen {
@@ -48,17 +67,21 @@ body {
 }
 
 .title {
+  margin: 0;
   padding-top: 5vh;
   @include bold();
-  font-size: 1rem;
+  font-size: .85rem;
   letter-spacing: 1px;
   color: #ffffff;
+  opacity: .4;
+  text-decoration: none;
 }
 
 .username-search {
   position: relative;
   display: block;
   @include box-sizing(border-box);
+  width: 100%;
   padding: .75rem 0;
   margin-top: 30vh;
   margin-bottom: 30vh;
@@ -73,5 +96,22 @@ body {
   @include placeholder() {
     color: white;
     opacity: .4;
+  }
+}
+
+.info {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: white;
+  opacity: 0;
+  visibility: hidden;
+  @include transition(visibility 0ms linear 200ms, opacity 200ms linear);
+  z-index: 1001;
+  &.is-active {
+    visibility: visible;
+    opacity: 1;
   }
 }

@@ -10,12 +10,21 @@
   <body>
     <main class="fullscreen">
       <div class="container">
-        <h1 class="title">Soundfinder</h1>
-        <form>
-          <input type="text" class="username-search" id="username" placeholder="soundcloud username" autocomplete="off">
+        <h1 class="title ilb">Soundfinder</h1>
+        <a href="#" class="ilb title right info-toggle" id="wtf">wtf</a>
+        <form class="username-form">
+          <input type="text" class="username-search" id="username" placeholder="soundcloud username" autocomplete="off" autofocus>
           <input type="submit" hidden>
         </form>
       </div>
+      <section class="info">
+        <div class="container">
+          <h2 class="leader-30">What is soundfinder?</h2>
+          <p>Sound finder allows you to find your kindred musical spirits. Search for SoundCloud users that have the same taste as you.</p>
+          <p>Experiment by <a href="http://paulcpederson.com">Paul C Pederson</a>. Code on <a href="https://github.com/paulcpederson/sound-finder">GitHub</a>.</p>
+          <a href="#" class="info-toggle">OK Thanks.</a>
+        </div>
+      </section>
     </main>
     <div class="users" id="users">
       {{#users}}
