@@ -1,68 +1,48 @@
-class Query {
-  /**
-  * Create a new array like object of elements
-  * @constructor
-  */
-  constructor(selector) {
-    var elements = document.querySelectorAll(selector)
-    this.length = elements.length
-    Object.assign(this, elements)
-  }
-
-  /**
-  * Apply function to  collection, return collection
-  * @param {Function} callback Callback function to call on every element
-  */
-  each(callback) {
-    for (let el of Array.from(this)) {
-      callback.call(el)
-    }
-    return this
-  }
-
+/**
+* Create a new array like object of dom elements
+*/
+function Query() {
   /**
   * Add a class to selected elements
   * @param {String} className The class name to add
   */
-  addClass(className) {
-    return this.each(function() {
-      this.classList.add(className)
-    })
+  this.addClass = className => {
+    this.forEach(e => e.classList.add(className))
+    return this
   }
-
   /**
   * Remove a class from selected elements
   * @param {String} className The class name to remove
   */
-  removeClass(className) {
-    return this.each(function() {
-      this.classList.remove(className)
-    })
+  this.removeClass = className => {
+    this.forEach(e => e.classList.remove(className))
+    return this
   }
-
   /**
   * Toggle a class from selected elements
   * @param {String} className The class name to toggle
   */
-  toggleClass(className) {
-    return this.each(function() {
-      this.classList.toggle(className)
-    })
+  this.toggleClass = className => {
+    this.forEach(e => e.classList.toggle(className))
+    return this
   }
-
   /**
   * Attach an event listener with a callback to the selected elements
   * @param {String} event Name of event, eg. "click", "mouseover", etc...
   * @param {Function} callback The function to call when the event is triggered
   */
-  on(event, fn) {
-    return this.each(function() {
-      this.addEventListener(event, fn, false)
-    })
+  this.on = (event, fn) => {
+    this.forEach(e => e.addEventListener(event, fn, false))
+    return this
   }
-
 }
 
-var $ = selector => new Query(selector)
+Query.prototype = Array.prototype
+
+let $ = selector => {
+  var collection = new Query();
+  collection.push(...document.querySelectorAll(selector))
+  return collection;
+}
 
 export default $
