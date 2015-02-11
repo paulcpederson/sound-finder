@@ -5,7 +5,7 @@
 import $ from './$'
 
 let loader = $('.loader')
-let text = $('.messages')
+let text = $('.message')
 
 /**
  * Update loader and status message
@@ -14,7 +14,7 @@ let text = $('.messages')
  * @returns {Sting} type One of 'info' or 'error'
  */
 let notify = (percentage = 0, message = '', type = 'info') => {
-  loader.textContent = message
+  text[0].textContent = message
   loader.addClass(`p${percentage}`)
 }
 

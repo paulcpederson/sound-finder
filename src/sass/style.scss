@@ -1,6 +1,7 @@
 @import 'scss-utils';
 
 $blue: #20BDDB;
+$light-blue: #40C5DF;
 $dark-blue: #148CBA;
 $fallbacks: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $light: 'HelveticaNeue-Light', 'Helvetica Neue Light', $fallbacks;
@@ -21,6 +22,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: $light;
+  background-color: $light-blue;
 }
 
 .container {
@@ -33,6 +35,17 @@ body {
   padding-right: 1rem;
   position: relative;
   z-index: 2;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  @include transition(visibility 0ms linear 200ms, opacity 300ms linear);
+  &.show {
+    visibility: visible;
+    opacity: 1;
+    @include transition-delay(0ms);
+  }
 }
 
 .right {
@@ -51,8 +64,11 @@ body {
   width: 100%;
   display: block;
   height: 100vh;
-  background-color: $blue;
   position: relative;
+}
+
+.desk {
+  background-color: $blue;
   &:before {
     content: '';
     position: absolute;
@@ -118,14 +134,8 @@ body {
 }
 
 .loader {
-  width: 0%;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 2;
-  opacity: .8;
   background: white;
+  width: 0%;
   @include transition(all 2000ms cubic-bezier(0.975, -0.480, 0.120, 1.615));
   &.p20 { width: 20%; }
   &.p40 { width: 40%; }
