@@ -1,23 +1,23 @@
 class Query {
   /**
-  * create a new array like object of elements
+  * Create a new array like object of elements
   * @constructor
   */
   constructor(selector) {
-    var elements = document.querySelectorAll(selector);
-    this.length = elements.length;
-    Object.assign(this, elements);
+    var elements = document.querySelectorAll(selector)
+    this.length = elements.length
+    Object.assign(this, elements)
   }
 
   /**
-  * @param {Function} callback A callback to call on each element
+  * Apply function to  collection, return collection
+  * @param {Function} callback Callback function to call on every element
   */
   each(callback) {
-    // convert this to Array to use for...of
     for (let el of Array.from(this)) {
-      callback.call(el);
+      callback.call(el)
     }
-    return this;
+    return this
   }
 
   /**
@@ -26,8 +26,8 @@ class Query {
   */
   addClass(className) {
     return this.each(function() {
-      this.classList.add(className);
-    });
+      this.classList.add(className)
+    })
   }
 
   /**
@@ -36,17 +36,8 @@ class Query {
   */
   removeClass(className) {
     return this.each(function() {
-      this.classList.remove(className);
-    });
-  }
-
-  /**
-  * Check to see if the element has a class
-  * (Note: Only checks the first elements if more than one is selected)
-  * @param {String} className The class name to check
-  */
-  hasClass(className) {
-    return this[0].classList.contains(className);
+      this.classList.remove(className)
+    })
   }
 
   /**
@@ -55,8 +46,8 @@ class Query {
   */
   toggleClass(className) {
     return this.each(function() {
-      this.classList.toggle(className);
-    });
+      this.classList.toggle(className)
+    })
   }
 
   /**
@@ -66,11 +57,12 @@ class Query {
   */
   on(event, fn) {
     return this.each(function() {
-      this.addEventListener(event, fn, false);
-    });
+      this.addEventListener(event, fn, false)
+    })
   }
+
 }
 
-var $ = selector => new Query(selector);
+var $ = selector => new Query(selector)
 
-export default $;
+export default $

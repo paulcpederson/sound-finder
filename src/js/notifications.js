@@ -1,4 +1,4 @@
-import $ from './query'
+import $ from './$'
 
 let loader = $('.loader')
 let text = $('.messages')
