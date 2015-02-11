@@ -1,4 +1,9 @@
+/**
+ * Simple request module
+ */
+
 let rq = {
+
   /**
    * Builds a URI-encoded query string from an object
    * @param {Object} form Formatted `{field: value}`

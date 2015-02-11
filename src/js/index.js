@@ -1,3 +1,8 @@
+/**
+ * Sound Finder
+ * this file should probably be factored more,
+ * bear with me...
+ */
 import soundCloud from './sound-cloud'
 import flatten from 'array-flatten'
 import notify from './notifications'
