@@ -8,6 +8,7 @@
     <link type="text/css" rel="stylesheet" href="dist/style.css">
   </head>
   <body>
+    <div class="loader"></div>
     <main class="fullscreen">
       <div class="container">
         <h1 class="title ilb">Soundfinder</h1>
@@ -28,9 +29,10 @@
     </main>
     <div class="users" id="users">
       {{#users}}
-        <b>{{name}}</b>
+        <b>{{username}}</b>
       {{/users}}
     </div>
+    <script src="//cdn.polyfill.io/v1/polyfill.min.js?features=default,Array.from,Object.assign"></script>
     <script src="dist/bundle.js"></script>
   </body>
 </html>
