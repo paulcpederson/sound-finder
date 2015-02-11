@@ -25,6 +25,6 @@
     "live-server": "^0.6.3",
     "node-sass": "^2.0.0-beta",
     "parallelshell": "^1.0.4",
-    "scss-utils": "paulcpederson/scss-utils"
+    "scss-utils": "*"
   }
 }
