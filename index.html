@@ -8,8 +8,15 @@
     <link type="text/css" rel="stylesheet" href="dist/style.css">
   </head>
   <body>
-    <div class="loader"></div>
-    <main class="fullscreen">
+    <section class="info">
+      <div class="container">
+        <h2 class="leader-30">What is soundfinder?</h2>
+        <p>Sound finder allows you to find your kindred musical spirits. Search for SoundCloud users that have the same taste as you.</p>
+        <p>Experiment by <a href="http://paulcpederson.com">Paul C Pederson</a>. Code on <a href="https://github.com/paulcpederson/sound-finder">GitHub</a>.</p>
+        <a href="#" class="info-toggle">OK Thanks.</a>
+      </div>
+    </section>
+    <main class="fullscreen desk">
       <div class="container">
         <h1 class="title ilb">Soundfinder</h1>
         <a href="#" class="ilb title right info-toggle" id="wtf">wtf</a>
@@ -18,20 +25,15 @@
           <input type="submit" hidden>
         </form>
       </div>
-      <section class="info">
-        <div class="container">
-          <h2 class="leader-30">What is soundfinder?</h2>
-          <p>Sound finder allows you to find your kindred musical spirits. Search for SoundCloud users that have the same taste as you.</p>
-          <p>Experiment by <a href="http://paulcpederson.com">Paul C Pederson</a>. Code on <a href="https://github.com/paulcpederson/sound-finder">GitHub</a>.</p>
-          <a href="#" class="info-toggle">OK Thanks.</a>
-        </div>
-      </section>
     </main>
-    <div class="users" id="users">
-      {{#users}}
-        <b>{{username}}</b>
-      {{/users}}
-    </div>
+    <section class="loader fullscreen hidden">
+      <h2 class="message hidden"></h2>
+      <div class="users hidden" id="users">
+        {{#users}}
+          <b>{{username}}</b>
+        {{/users}}
+      </div>
+    </section>
     <script src="//cdn.polyfill.io/v1/polyfill.min.js?features=default,Array.from,Object.assign"></script>
     <script src="dist/bundle.js"></script>
   </body>
