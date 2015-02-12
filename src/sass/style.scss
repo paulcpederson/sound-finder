@@ -141,3 +141,11 @@ body {
   &.p40 { width: 40%; }
   &.p60 { width: 60%; }
 }
+
+.message {
+  padding-top: 30vh;
+  color: rgba(0,0,0, .4);
+  @include bold();
+  font-size: 4rem;
+  z-index: 2;
+}
