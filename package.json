@@ -8,7 +8,7 @@
     "compile": "browserify -e src/js/index.js -d -t [ 6to5ify --sourceMapRelative .] -o dist/bundle.js",
     "watch:js": "fsmonitor -d src/js/ npm run compile",
     "watch:sass": "fsmonitor -d src/sass/ npm run sass",
-    "sass": "node-sass -r --include-path node_modules/scss-utils/ src/sass/style.scss -o dist/",
+    "sass": "scss-cli src/sass/*.scss --include-path node_modules/scss-utils/ -o dist/",
     "img": "imageoptim -d src/img/",
     "predev": "npm run prepublish",
     "dev": "parallelshell 'live-server' 'npm run watch:js' 'npm run watch:sass'"
@@ -25,6 +25,7 @@
     "live-server": "^0.6.3",
     "node-sass": "^2.0.0-beta",
     "parallelshell": "^1.0.4",
-    "scss-utils": "*"
+    "scss-utils": "*",
+    "scss-cli": "0.0.2"
   }
 }
