@@ -2,3 +2,4 @@ node_modules
 dist
 bundle.*
 *.log
+src/js/templates.js
