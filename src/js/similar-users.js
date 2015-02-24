@@ -1,14 +1,15 @@
-/**
- * Sound Finder
- * this file should probably be factored more,
- * bear with me...
- */
 import soundCloud from './sound-cloud'
 import flatten from 'array-flatten'
 import notify from './notifications'
 
 var sc = soundCloud('739b39925c3cc275aeb03837ff27762c')
 
+
+/**
+ * Get Soundcloud users that are like another user
+ * @param {String} username Username of the user you'd like to research
+ * @returns {Promise} Resolved with an array of similar user objects
+ */
 var getFriends = (username) => {
   return new Promise((resolve, reject) => {
     // get userid from username
@@ -29,10 +30,12 @@ var getFriends = (username) => {
 
       notify(30, `comparing ${username} to other users`)
 
+      // flatten all of the favoriters into one array
       favoriters = flatten(favoriters)
       let users = {}
+      // create a hash of all user ids
       let hash = favoriters.map(f => f.id)
-
+      // iterate over all ids, incrementing similarity
       hash.forEach((id, i) => {
         if (users[id]) {
           users[id].similarity += 1
