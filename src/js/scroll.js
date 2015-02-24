@@ -1,7 +1,17 @@
 let scroll = {
+  /**
+   * Fires a function on scroll with request animation frame
+   * @param {Function} fn Function to fire on scroll event
+   */
   on: (fn) => {
     window.addEventListener('scroll', () => window.requestAnimationFrame(fn))
   },
+  /**
+   * Smooth scroll to a dom element
+   * @param {Element} el DOM Element Object
+   * @param {Int} duration Duration of scroll in milliseconds
+   * @param {String} easing Easing function: http://easings.net/
+   */
   to: (el, duration = 400, easing = 'linear') => {
     el = el instanceof Array ? el[0] : el
 
