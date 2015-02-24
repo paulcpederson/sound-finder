@@ -1,9 +1,9 @@
 import similarUsers from './similar-users'
-import * as templates from './templates'
+import * as templates from 'templates'
 import observable from 'observable'
 import diffDOM from 'diff-dom'
-import scroll from './scroll'
-import $ from './$'
+import scroll from 'scroll'
+import $ from '$'
 
 let users = observable()
 let $users = document.querySelector('#users')

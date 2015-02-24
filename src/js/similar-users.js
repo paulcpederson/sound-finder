@@ -1,4 +1,4 @@
-import soundCloud from './sound-cloud'
+import soundCloud from 'sound-cloud'
 import flatten from 'array-flatten'
 import notify from './notifications'
 

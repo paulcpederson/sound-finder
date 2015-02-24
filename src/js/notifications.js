@@ -2,7 +2,7 @@
  * Manage progress bar and status messages
  */
 
-import $ from './$'
+import $ from '$'
 
 let loader = $('.loader')
 let text = $('.message')

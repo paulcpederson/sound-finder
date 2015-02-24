@@ -1,3 +1,6 @@
+/**
+ * Scroll Handling & Smooth Scroll
+ */
 let scroll = {
   /**
    * Fires a function on scroll with request animation frame

@@ -1,8 +1,7 @@
 /**
  * Wrapper for soundcloud api
  */
-import rq from './rq'
-
+import rq from 'rq'
 /**
  * Sets up a new sound cloud client
  * @param {String} clientId Your soundcloud app id

@@ -1,9 +1,7 @@
 /**
  * Simple request module
  */
-
 let rq = {
-
   /**
    * Builds a URI-encoded query string from an object
    * @param {Object} form Formatted `{field: value}`
@@ -14,7 +12,6 @@ let rq = {
       return [key, form[key]].map(encodeURIComponent).join('=')
     }).join('&')
   },
-
   /**
    * Simple GET request to url, returns a promise
    * @param {String} url
