@@ -17,8 +17,8 @@ users(u => {
 
 $('.username-form').on('submit', (e) => {
   e.preventDefault()
-  scroll.to(document.querySelector('.loader'))
   $('.loader').addClass('show')
+  scroll.to(document.querySelector('.loader'))
   let username = document.getElementById('username').value
   similarUsers(username).then(response => {
     users(response)
