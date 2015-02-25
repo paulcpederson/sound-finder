@@ -1,0 +1,14 @@
+$fallbacks: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$light: 'HelveticaNeue-Light', 'Helvetica Neue Light', $fallbacks;
+$normal: 'HelveticaNeue', 'Helvetica Neue', $fallbacks;
+$bold: 'HelveticaNeue-Bold', 'Helvetica Neue Bold', $fallbacks;
+
+@mixin bold() {
+  font-weight: 600;
+  font-family: $bold;
+}
+
+@mixin light() {
+  font-weight: 200;
+  font-family: $light;
+}

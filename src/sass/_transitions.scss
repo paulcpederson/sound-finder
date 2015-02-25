@@ -1,0 +1,24 @@
+$transition-time: 700ms;
+
+.move-in {
+  visibility: visible;
+  opacity: 1;
+  @include transform(translate3d(0,0,0));
+  @include transition-prefixed(transform $transition-time linear, opacity $transition-time linear, visibility 0ms linear $transition-time);
+  visibility: visible;
+  @include transition-delay(0ms);
+}
+
+.move-out-left {
+  visibility: hidden;
+  opacity: 0;
+  @include transform(translate3d(-400px, 0, 0));
+  @include transition-prefixed(transform $transition-time linear, opacity $transition-time linear, visibility 0ms linear $transition-time);
+}
+
+.move-out-right {
+  visibility: hidden;
+  opacity: 0;
+  @include transform(translate3d(-400px, 0, 0));
+  @include transition-prefixed(transform $transition-time linear, opacity $transition-time linear, visibility 0ms linear $transition-time);
+}
