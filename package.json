@@ -3,17 +3,16 @@
   "version": "0.0.0",
   "description": "build a community around music",
   "main": "index.js",
-  "aliasify": {
-    "aliases": {
-      "$": "./src/js/lib/$.js",
-      "rq": "./src/js/lib/rq.js",
-      "scroll": "./src/js/lib/scroll.js",
-      "templates": "./src/js/templates.js",
-      "sound-cloud": "./src/js/lib/sound-cloud.js"
-    }
+  "browser": {
+    "$": "./src/js/lib/$.js",
+    "rq": "./src/js/lib/rq.js",
+    "scroll": "./src/js/lib/scroll.js",
+    "templates": "./src/js/templates.js",
+    "sound-cloud": "./src/js/lib/sound-cloud.js",
+    "pub-sub": "./src/js/lib/pub-sub.js"
   },
   "scripts": {
-    "js": "browserify -e src/js/index.js -d -t [ 6to5ify --sourceMapRelative .] aliasify -o dist/bundle.js",
+    "js": "browserify -e src/js/index.js -d -t [ 6to5ify --sourceMapRelative .] -o dist/bundle.js",
     "watch:js": "fsmonitor -d src/js/ npm run js",
     "templates": "hulk src/templates/*.html -w es6 > src/js/templates.js",
     "watch:templates": "fsmonitor -d src/templates/ npm run templates",
@@ -27,7 +26,6 @@
   "license": "ISC",
   "devDependencies": {
     "6to5ify": "^4.1.0",
-    "aliasify": "^1.5.1",
     "array-flatten": "^1.0.2",
     "browserify": "^8.1.3",
     "diff-dom": "^1.0.0",
