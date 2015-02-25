@@ -2,12 +2,15 @@ import similarUsers from './similar-users'
 import * as templates from 'templates'
 import observable from 'observable'
 import diffDOM from 'diff-dom'
+import events from 'pub-sub'
 import scroll from 'scroll'
 import $ from '$'
 
 let users = observable()
 let $users = document.querySelector('#users')
 let dd = new diffDOM()
+
+events.on('testEvent', () => console.log('fired'))
 
 users(u => {
   let tmp = $users.cloneNode(false)

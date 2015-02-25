@@ -1,16 +1,17 @@
 import soundCloud from 'sound-cloud'
 import flatten from 'array-flatten'
 import notify from './notifications'
-
-var sc = soundCloud('739b39925c3cc275aeb03837ff27762c')
-
+import events from 'pub-sub'
 
 /**
  * Get Soundcloud users that are like another user
  * @param {String} username Username of the user you'd like to research
  * @returns {Promise} Resolved with an array of similar user objects
  */
+var sc = soundCloud('739b39925c3cc275aeb03837ff27762c')
 var getFriends = (username) => {
+
+  events.trigger('testEvent')
   return new Promise((resolve, reject) => {
     // get userid from username
     sc.userID(username)
