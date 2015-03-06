@@ -1,4 +1,5 @@
 <html>
+
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
@@ -7,29 +8,54 @@
     <!--<link rel="shortcut icon" href="/img/favicon.ico">-->
     <link type="text/css" rel="stylesheet" href="build/style.css">
   </head>
+
   <body>
+
+    <!-- Info Modal -->
     <section class="info">
       <div class="container">
-        <h2 class="leader-30">What is soundfinder?</h2>
+        <h2 class="leader-30 ilb">What is soundfinder?</h2><a href="#" class="info-toggle right">OK Thanks.</a>
         <p>Sound finder allows you to find your kindred musical spirits. Search for SoundCloud users that have the same taste as you.</p>
         <p>Experiment by <a href="http://paulcpederson.com">Paul C Pederson</a>. Code on <a href="https://github.com/paulcpederson/sound-finder">GitHub</a>.</p>
-        <a href="#" class="info-toggle">OK Thanks.</a>
       </div>
     </section>
-    <main class="fullscreen desk">
+
+    <!-- Top Nav -->
+    <header class="navigation">
       <div class="container">
         <h1 class="title ilb">Soundfinder</h1>
         <a href="#" class="ilb title right info-toggle" id="wtf">wtf</a>
-        <form class="username-form">
+      </div>
+    </header>
+
+    <!-- Search Input -->
+    <section class="fullscreen desk">
+      <div class="container">
+        <form class="username-form move-in">
           <input type="text" class="username-search" id="username" placeholder="soundcloud username" autocomplete="off" autofocus>
           <input type="submit" hidden>
         </form>
       </div>
+    </section>
+
+    <!-- Loading Indicator and Text -->
+    <section class="loader-wrap fullscreen move-in move-out-right">
       <div class="loader"></div>
-      <h2 class="loading-message move-in move-out-right"></h2>
-      <section class="users move-in move-out-right" id="users"></section>
-    </main>
+      <div class="container">
+        <h2 class="loading-message"></h2>
+      </div>
+    </section>
+
+    <!-- Similar Users Container -->
+    <section class="user-wrap fullscreen move-in move-out-right">
+      <div class="container">
+        <div id="users" class="leader-20"></div>
+      </div>
+    </section>
+
     <script src="//cdn.polyfill.io/v1/polyfill.min.js?features=default,Array.from"></script>
     <script src="build/bundle.js"></script>
+
   </body>
+
 </html>
