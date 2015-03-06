@@ -1,6 +1,10 @@
-@import 'scss-utils';
-@import 'transitions';
+@import 'scss-utils/scss-utils';
 @import 'type';
+
+$font-reset: $light;
+
+@import 'inline-block-grid/grid';
+@import 'transitions';
 
 $blue: #20BDDB;
 $light-blue: #40C5DF;
@@ -44,14 +48,13 @@ body {
   display: inline-block;
 }
 
-.leader-30 {
-  margin-top: 30vh;
-}
+.leader-20 { margin-top: 20vh; }
+.leader-30 { margin-top: 30vh; }
 
 .fullscreen {
   width: 100%;
   height: 100vh;
-  position: relative;
+  position: absolute;
 }
 
 .desk {
@@ -87,7 +90,7 @@ body {
   @include box-sizing(border-box);
   width: 100%;
   padding: .75rem 0;
-  margin-top: 30vh;
+  margin-top: 35vh;
   margin-bottom: 30vh;
   outline: none;
   color: white;
@@ -129,10 +132,16 @@ body {
   &.p60 { width: 60%; }
 }
 
-.message {
-  padding-top: 30vh;
-  color: rgba(0,0,0, .4);
+.loading-message {
+  padding-top: 35vh;
+  color: rgba(255,255,255,.4);
   @include bold();
-  font-size: 4rem;
+  font-size: 3rem;
   z-index: 2;
+}
+
+.navigation {
+  position: fixed;
+  width: 100vw;
+  z-index: 1;
 }

@@ -7,17 +7,18 @@
     "$": "./source/js/lib/$.js",
     "rq": "./source/js/lib/rq.js",
     "scroll": "./source/js/lib/scroll.js",
+    "pub-sub": "./source/js/lib/pub-sub.js",
     "templates": "./source/js/lib/templates.js",
     "sound-cloud": "./source/js/lib/sound-cloud.js",
     "similar-users": "./source/js/services/similar-users.js",
-    "pub-sub": "./source/js/lib/pub-sub.js"
+    "models/similar-users": "./source/js/models/similar-users.js"
   },
   "scripts": {
     "js": "browserify -e source/js/index.js -d -t [ 6to5ify --sourceMapRelative .] -o build/bundle.js",
     "watch:js": "fsmonitor -d source/js/ npm run js",
     "templates": "hulk source/templates/*.html -w es6 > source/js/lib/templates.js",
     "watch:templates": "fsmonitor -d source/templates/ npm run templates",
-    "sass": "scss-cli source/sass/*.scss --include-path node_modules/scss-utils/ -o build/",
+    "sass": "scss-cli source/sass/*.scss --include-path node_modules/ -o build/",
     "watch:sass": "fsmonitor -d source/sass/ npm run sass",
     "img": "imagemin source/img/* build",
     "predev": "npm run templates && mkdir -p build && npm run js && npm run sass",
@@ -33,6 +34,7 @@
     "fsmonitor": "^0.2.4",
     "hogan.js": "paulcpederson/hogan.js",
     "imagemin": "^3.1.0",
+    "inline-block-grid": "git://github.com/paulcpederson/inline-block-grid",
     "live-server": "^0.6.3",
     "observable": "^2.1.3",
     "parallelshell": "^1.0.4",
