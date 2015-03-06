@@ -1,12 +1,18 @@
 /**
+* Import Models
+*/
+import modelUsers from './models/similar-users.js'
+
+/**
 * Import Views
 */
 import viewLoader from './views/loader.js'
-import viewUsers from './views/users.js'
+import viewUsers from './views/similar-users.js'
+import viewInfo from './views/search.js'
 import viewInfo from './views/info.js'
 
 /**
 * Import Controllers
 */
-import controller from './controller'
+import controller from './controller.js'
 
