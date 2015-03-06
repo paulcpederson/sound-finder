@@ -1,6 +1,5 @@
 import soundCloud from 'sound-cloud'
 import flatten from 'array-flatten'
-import notify from './notifications'
 import events from 'pub-sub'
 
 /**
@@ -17,19 +16,19 @@ var getFriends = (username) => {
     sc.userID(username)
     // get last 50 favorite tracks
     .then(user => {
-      notify(10, `fetching ${username}'s favorites`)
+      events.trigger('loader:update', {percentage: 10, message: `fetching ${username}'s favorites`})
       return sc.favorites(user.id)
     })
     // get all the people who favorited those tracks
     .then(favorites => {
       let allfavs = favorites.map(f => f.id).map(sc.trackFavorites)
-      notify(30, `finding other users`)
+      events.trigger('loader:update', {percentage: 30, message: `finding other users`})
       return Promise.all(allfavs)
     })
     // assemble an array
     .then(favoriters => {
 
-      notify(30, `comparing ${username} to other users`)
+      events.trigger('loader:update',{percentage: 50 , message: `comparing ${username} to other users`})
 
       // flatten all of the favoriters into one array
       favoriters = flatten(favoriters)
@@ -46,7 +45,7 @@ var getFriends = (username) => {
         }
       })
 
-      notify(70, 'ranking users based on similarity')
+      events.trigger('loader:update',{percentage: 70 , message: 'ranking users based on similarity'})
 
       let similarUsers = []
       let keys = Object.keys(users)
@@ -56,7 +55,7 @@ var getFriends = (username) => {
         similarUsers.push(users[key])
       })
 
-      notify(100, '')
+      events.trigger('loader:update', {percentage: 100})
 
       resolve(similarUsers)
     })

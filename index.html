@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>Sound Finder</title>
     <!--<link rel="shortcut icon" href="/img/favicon.ico">-->
-    <link type="text/css" rel="stylesheet" href="dist/style.css">
+    <link type="text/css" rel="stylesheet" href="build/style.css">
   </head>
   <body>
     <section class="info">
@@ -25,12 +25,11 @@
           <input type="submit" hidden>
         </form>
       </div>
+      <div class="loader"></div>
+      <h2 class="loading-message move-in move-out-right"></h2>
+      <section class="users move-in move-out-right" id="users"></section>
     </main>
-    <section class="loader fullscreen hidden">
-      <h2 class="message hidden"></h2>
-      <div class="users hidden" id="users"></div>
-    </section>
     <script src="//cdn.polyfill.io/v1/polyfill.min.js?features=default,Array.from"></script>
-    <script src="dist/bundle.js"></script>
+    <script src="build/bundle.js"></script>
   </body>
 </html>

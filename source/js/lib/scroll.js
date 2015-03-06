@@ -15,7 +15,7 @@ let scroll = {
    * @param {Int} duration Duration of scroll in milliseconds
    * @param {String} easing Easing function: http://easings.net/
    */
-  to: (el, duration = 400, easing = 'linear') => {
+  to: (el, {duration = 400, easing = 'linear'} = {}) => {
     el = el instanceof Array ? el[0] : el
 
     let target = el.offsetTop
