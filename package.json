@@ -14,31 +14,33 @@
     "models/similar-users": "./source/js/models/similar-users.js"
   },
   "scripts": {
-    "js": "browserify -e source/js/index.js -d -t [ 6to5ify --sourceMapRelative .] -o build/bundle.js",
+    "js": "browserify -e source/js/index.js -d -t [ babelify --sourceMapRelative .] -o build/bundle.js",
     "watch:js": "fsmonitor -d source/js/ npm run js",
     "templates": "hulk source/templates/*.html -w es6 > source/js/lib/templates.js",
     "watch:templates": "fsmonitor -d source/templates/ npm run templates",
     "sass": "scss-cli source/sass/*.scss --include-path node_modules/ -o build/",
     "watch:sass": "fsmonitor -d source/sass/ npm run sass",
     "img": "imagemin source/img/* build",
-    "predev": "npm run templates && mkdir -p build && npm run js && npm run sass",
-    "dev": "parallelshell 'live-server' 'npm run watch:js' 'npm run watch:sass' 'npm run watch:templates'"
+    "watch:img": "fsmonitor -d source/img/ npm run img",
+    "predev": "npm run templates && mkdir -p build && npm run js && npm run sass && npm run img",
+    "dev": "parallelshell 'live-server' 'npm run watch:js' 'npm run watch:sass' 'npm run watch:templates' 'npm run watch:img'"
   },
   "author": "Paul C Pederson <paul.c.pederson@gmail.com> (http://paulcpederson.com/)",
   "license": "ISC",
   "devDependencies": {
-    "6to5ify": "^4.1.0",
     "array-flatten": "^1.0.2",
+    "babelify": "^5.0.4",
     "browserify": "^8.1.3",
     "diff-dom": "^1.0.0",
     "fsmonitor": "^0.2.4",
     "hogan.js": "paulcpederson/hogan.js",
     "imagemin": "^3.1.0",
-    "inline-block-grid": "git://github.com/paulcpederson/inline-block-grid",
+    "inline-block-grid": "paulcpederson/inline-block-grid",
     "live-server": "^0.6.3",
     "observable": "^2.1.3",
     "parallelshell": "^1.0.4",
     "scss-cli": "^0.0.4",
-    "scss-utils": "*"
+    "scss-utils": "*",
+    "standard": "*"
   }
 }
