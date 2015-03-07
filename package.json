@@ -39,7 +39,7 @@
     "live-server": "^0.6.3",
     "observable": "^2.1.3",
     "parallelshell": "^1.0.4",
-    "scss-cli": "^0.0.4",
+    "scss-cli": "^0.0.5",
     "scss-utils": "*",
     "standard": "*"
   }
