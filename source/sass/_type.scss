@@ -12,3 +12,8 @@ $bold: 'HelveticaNeue-Bold', 'Helvetica Neue Bold', $fallbacks;
   font-weight: 200;
   font-family: $light;
 }
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}

@@ -2,15 +2,15 @@
   {{#users}}
     <div class="column-4">
       <img src="{{avatar_url}}" alt="" class="avatar">
-      <h4>
+      <h4 class="username">
         <a href="https://soundcloud.com/{{permalink_url}}/">
           {{#full_name}}{{full_name}}{{/full_name}}
           {{^full_name}}{{username}}{{/full_name}}
         </a>
       </h4>
-      {{#city}}<p>{{city}}</p>{{/city}}
+      {{#city}}<p class="city">{{city}}</p>{{/city}}
       <p>{{track_count}} tracks</p>
-      <nav>
+      <nav class="user-nav">
         <a href="https://soundcloud.com/{{permalink_url}}/">stream</a>
         <a href="https://soundcloud.com/{{permalink_url}}/sets/">playlists</a>
         <a href="https://soundcloud.com/{{permalink_url}}/likes/">favorites</a>
