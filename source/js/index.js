@@ -1,4 +1,9 @@
 /**
+* Polyfills
+*/
+import polyfill from 'array.from'
+
+/**
 * Import Models
 */
 import modelUsers from './models/similar-users.js'
