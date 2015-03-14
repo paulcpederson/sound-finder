@@ -5,6 +5,9 @@ import events from 'pub-sub'
 // initialize new sound cloud client
 const sc = soundCloud('739b39925c3cc275aeb03837ff27762c')
 
+// suppress errors in optional calls
+let suppress = x => x.catch(function (err) { console.log(err) })
+
 /**
  * Get Soundcloud users that are like another user
  * @param {String} username Username of the user you'd like to research
@@ -14,6 +17,10 @@ let getFriends = (username) => {
   return new Promise((resolve, reject) => {
     // get userid from username
     sc.userID(username)
+    .catch(err => {
+      events.trigger('loader:update', {message: 'Error finding username. Try again, butterfingers...', type: 'error'})
+      reject(err)
+    })
     // get last 50 favorite tracks
     .then(user => {
       events.trigger('loader:update', {percentage: 10, message: `fetching ${username}'s favorites`})
@@ -23,7 +30,7 @@ let getFriends = (username) => {
     .then(favorites => {
       let allfavs = favorites.map(f => f.id).map(sc.trackFavorites)
       events.trigger('loader:update', {percentage: 40, message: `finding other users, hang tight...`})
-      return Promise.all(allfavs)
+      return Promise.all(allfavs.map(suppress))
     })
     // assemble an array
     .then(favoriters => {
@@ -31,7 +38,7 @@ let getFriends = (username) => {
       events.trigger('loader:update',{percentage: 80 , message: `comparing ${username} to other users`})
 
       // flatten all of the favoriters into one array
-      favoriters = flatten(favoriters)
+      favoriters = flatten(favoriters).filter(f => f !== undefined)
       let users = {}
       // create a hash of all user ids
       let hash = favoriters.map(f => f.id)
