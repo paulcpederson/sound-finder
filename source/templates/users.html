@@ -1,21 +1,20 @@
 <div class="block-grid">
   {{#users}}
-    <div class="column-4">
+    <div class="column-4 user">
       <img src="{{avatar_url}}" alt="" class="avatar">
       <h4 class="username">
-        <a href="https://soundcloud.com/{{permalink_url}}/">
+        <a href="{{permalink_url}}/">
           {{#full_name}}{{full_name}}{{/full_name}}
           {{^full_name}}{{username}}{{/full_name}}
         </a>
       </h4>
       {{#city}}<p class="city">{{city}}</p>{{/city}}
-      <p>{{track_count}} tracks</p>
+      {{^city}}<p class="city">Earth</p>{{/city}}
       <nav class="user-nav">
-        <a href="https://soundcloud.com/{{permalink_url}}/">stream</a>
-        <a href="https://soundcloud.com/{{permalink_url}}/sets/">playlists</a>
-        <a href="https://soundcloud.com/{{permalink_url}}/likes/">favorites</a>
+        <a href="{{permalink_url}}/">stream</a>
+        <a href="{{permalink_url}}/sets/">playlists</a>
+        <a href="{{permalink_url}}/likes/">favorites</a>
       </nav>
-      <b>{{username}}</b>
     </div>
   {{/users}}
 </div>

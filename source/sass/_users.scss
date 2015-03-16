@@ -1,7 +1,34 @@
+.user {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  font-family: $light;
+  color: rgba(255,255,255,.85);
+  a {
+    color: rgba(255,255,255,.85);
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+    @include transition(all 200ms linear);
+    &:hover {
+      color: rgba(255,255,255,1);
+      border-bottom-color: white;
+    }
+  }
+}
+
+.username {
+  display: inline-block;
+  margin: 0.5em 0 .25em 0;
+}
+
+.city {
+  margin: 0;
+}
 
 .avatar {
+  float: left;
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  width: 60px;
+  height: 60px;
+  margin-right: .5em;
 }
 
