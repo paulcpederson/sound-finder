@@ -19,4 +19,3 @@ $('.back').on('click', () => {
   events.trigger('users:hide')
   events.trigger('search:show')
 })
-

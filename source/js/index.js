@@ -6,18 +6,20 @@ import polyfill from 'array.from'
 /**
 * Import Models
 */
-import modelUsers from './models/similar-users.js'
+import userModel from './models/similar-users.js'
 
 /**
 * Import Views
 */
-import viewLoader from './views/loader.js'
-import viewSearch from './views/search.js'
-import viewUsers from './views/similar-users.js'
-import viewInfo from './views/info.js'
+import loaderView from './views/loader.js'
+import searchView from './views/search.js'
+import playerView from './views/player.js'
+import usersView from './views/similar-users.js'
+import infoView from './views/info.js'
 
 /**
 * Import Controllers
 */
-import controller from './controller.js'
+import searchController from './controllers/search.js'
+import playerController from './controllers/player.js'
 

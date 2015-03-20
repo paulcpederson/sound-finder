@@ -39,9 +39,11 @@ let getFriends = (username) => {
 
       // flatten all of the favoriters into one array
       favoriters = flatten(favoriters).filter(f => f !== undefined)
-      let users = {}
+
       // create a hash of all user ids
+      let users = {}
       let hash = favoriters.map(f => f.id)
+
       // iterate over all ids, incrementing similarity
       hash.forEach((id, i) => {
         if (users[id]) {
