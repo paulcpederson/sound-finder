@@ -2,6 +2,7 @@
  * Wrapper for soundcloud api
  */
 import rq from 'rq'
+
 /**
  * Sets up a new sound cloud client
  * @param {String} clientId Your soundcloud app id
@@ -24,4 +25,4 @@ let client = clientId => {
   return sc
 }
 
-export default client
+export default client('739b39925c3cc275aeb03837ff27762c')

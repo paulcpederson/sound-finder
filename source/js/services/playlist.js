@@ -1,4 +1,4 @@
-import soundCloud from 'sound-cloud'
+import sc from 'sound-cloud'
 import mess from 'mess'
 
 /**
@@ -8,9 +8,9 @@ import mess from 'mess'
  */
 let playlist = (id) => {
   return new Promise((resolve, reject) => {
-    soundCloud.favorites(id).then(favs => {
-      console.log(favs)
-      resolve(favs)
+    sc.favorites(id).then(favs => {
+      favs = favs.map(f => f.id)
+      resolve(mess(favs))
     }).catch(err => reject(err))
   })
 }

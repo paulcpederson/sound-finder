@@ -10,3 +10,5 @@ $('#users').on('click', (e) => {
     events.trigger('player:new', id)
   }
 })
+
+// Code to deal with play, pause, next

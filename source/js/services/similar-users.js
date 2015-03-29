@@ -1,9 +1,6 @@
-import soundCloud from 'sound-cloud'
+import sc from 'sound-cloud'
 import flatten from 'array-flatten'
 import events from 'pub-sub'
-
-// initialize new sound cloud client
-const sc = soundCloud('739b39925c3cc275aeb03837ff27762c')
 
 // suppress errors in optional calls
 let suppress = x => x.catch(function (err) { console.log(err) })
