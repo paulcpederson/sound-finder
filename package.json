@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "description": "build a community around music",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paulcpederson/sound-finder.git"
+  },
   "browserify-shim": {
     "SC": "global:SC"
   },
@@ -22,17 +26,21 @@
     "similar-users": "./source/js/services/similar-users.js",
     "models/similar-users": "./source/js/models/similar-users.js"
   },
+  "watches": {
+    "js": ["source/js/**"],
+    "templates": ["source/templates/**"],
+    "sass": ["source/sass/**"],
+    "img": ["source/img/**" ]
+  },
   "scripts": {
+    "prejs": "mkdir -p build",
     "js": "browserify -e source/js/index.js -d -o build/bundle.js",
-    "watch:js": "fsmonitor -d source/js/ npm run js",
     "templates": "hulk source/templates/*.html -w es6 > source/js/lib/templates.js",
-    "watch:templates": "fsmonitor -d source/templates/ npm run templates",
     "sass": "scss-cli source/sass/*.scss --include-path node_modules/ -o build/",
-    "watch:sass": "fsmonitor -d source/sass/ npm run sass",
-    "img": "imagemin source/img/* build",
-    "watch:img": "fsmonitor -d source/img/ npm run img",
-    "predev": "npm run templates && mkdir -p build && npm run js && npm run sass && npm run img",
-    "dev": "parallelshell 'live-server' 'npm run watch:js' 'npm run watch:sass' 'npm run watch:templates' 'npm run watch:img'",
+    "img": "imagemin-newer source/img/ build",
+    "predev": "npm-run-all js templates sass img",
+    "watch": "rerun-script",
+    "dev": "parallelshell 'live-server' 'npm run watch'",
     "test": "standard"
   },
   "author": "Paul C Pederson <paul.c.pederson@gmail.com> (http://paulcpederson.com/)",
@@ -46,12 +54,14 @@
     "diff-dom": "^1.0.0",
     "fsmonitor": "^0.2.4",
     "hogan.js": "paulcpederson/hogan.js",
-    "imagemin": "^3.1.0",
+    "imagemin-newer": "^1.0.1",
     "inline-block-grid": "paulcpederson/inline-block-grid",
     "live-server": "^0.6.3",
     "mess": "^0.1.2",
+    "npm-run-all": "^1.0.2",
     "observable": "^2.1.3",
     "parallelshell": "^1.0.4",
+    "rerun-script": "^0.4.1",
     "scss-cli": "^0.0.5",
     "scss-utils": "*",
     "standard": "3.0.0"
