@@ -16,16 +16,6 @@
       "browserify-shim"
     ]
   },
-  "browser": {
-    "$": "./source/js/lib/$.js",
-    "rq": "./source/js/lib/rq.js",
-    "scroll": "./source/js/lib/scroll.js",
-    "pub-sub": "./source/js/lib/pub-sub.js",
-    "templates": "./source/js/lib/templates.js",
-    "sound-cloud": "./source/js/lib/sound-cloud.js",
-    "similar-users": "./source/js/services/similar-users.js",
-    "models/similar-users": "./source/js/models/similar-users.js"
-  },
   "watches": {
     "js": ["source/js/**"],
     "templates": ["source/templates/**"],
@@ -64,6 +54,6 @@
     "rerun-script": "wilmoore/rerun-script",
     "scss-cli": "^0.0.5",
     "scss-utils": "*",
-    "standard": "3.0.0"
+    "standard": "^3.0.0"
   }
 }
