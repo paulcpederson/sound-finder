@@ -5,12 +5,7 @@ import $ from '$'
 
 events.on('player:new', (id) => {
   playlist(id).then(tracks => {
-    console.log(tracks)
-    return player.loadTrack(tracks[0])
-  })
-  .catch(err => console.log(err))
-  .then(sound => {
-    //console.log(sound)
+    player.loadTrack(tracks[0])
   })
   .catch(err => console.log(err))
 })

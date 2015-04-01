@@ -7,19 +7,15 @@ SC.initialize({
 
 // Basic player methods
 let player = {
+  sound: false,
   loadTrack: (track) => {
-    return new Promise((resolve, reject) => {
-      SC.stream('/tracks/293', (sound) => {
-        resolve(sound)
-      })
+    SC.stream(`/tracks/${track}`, (sound) => {
+      player.sound = sound
+      player.play()
     })
   },
-  play: () => {
-
-  },
-  pause: () => {
-
-  },
+  play: () => player.sound.play(),
+  pause: () => player.sound.pause(),
   next: () => {
 
   }

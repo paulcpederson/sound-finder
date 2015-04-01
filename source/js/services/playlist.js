@@ -2,7 +2,7 @@ import sc from 'sound-cloud'
 import mess from 'mess'
 
 /**
- * Assemble a suffled playlist out of a users likes
+ * Assemble a shuffled playlist out of a users likes
  * @param {Int} id ID of the user
  * @returns {Promise} Resolved with an array of trackIds
  */
