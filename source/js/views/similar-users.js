@@ -1,5 +1,5 @@
-import model from 'models/similar-users'
-import * as templates from 'templates'
+import model from '../models/similar-users.js'
+import * as templates from '../lib/templates.js'
 import diffDOM from 'diff-dom'
 import events from 'pub-sub'
 import $ from '$'

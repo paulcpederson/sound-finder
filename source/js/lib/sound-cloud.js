@@ -1,7 +1,7 @@
 /**
  * Wrapper for soundcloud api
  */
-import rq from 'rq'
+import rq from './rq.js'
 
 /**
  * Sets up a new sound cloud client

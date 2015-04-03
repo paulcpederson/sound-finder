@@ -18,13 +18,8 @@
   },
   "browser": {
     "$": "./source/js/lib/$.js",
-    "rq": "./source/js/lib/rq.js",
-    "scroll": "./source/js/lib/scroll.js",
     "pub-sub": "./source/js/lib/pub-sub.js",
-    "templates": "./source/js/lib/templates.js",
-    "sound-cloud": "./source/js/lib/sound-cloud.js",
-    "similar-users": "./source/js/services/similar-users.js",
-    "models/similar-users": "./source/js/models/similar-users.js"
+    "sound-cloud": "./source/js/lib/sound-cloud.js"
   },
   "watches": {
     "js": ["source/js/**"],
@@ -33,12 +28,11 @@
     "img": ["source/img/**"]
   },
   "scripts": {
-    "prejs": "mkdir -p build",
     "js": "browserify -e source/js/index.js -d -o build/bundle.js",
     "templates": "hulk source/templates/*.html -w es6 > source/js/lib/templates.js",
     "sass": "scss-cli source/sass/*.scss --include-path node_modules/ -o build/",
     "img": "imagemin-newer source/img/ build",
-    "predev": "npm-run-all templates js sass img",
+    "predev": "mkdir -p build && npm-run-all templates js sass img",
     "watch": "rerun-script",
     "dev": "parallelshell 'live-server' 'npm run watch'",
     "test": "standard"

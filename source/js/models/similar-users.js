@@ -1,4 +1,4 @@
-import similarUsers from 'similar-users'
+import similarUsers from '../services/similar-users.js'
 import observable from 'observable'
 import events from 'pub-sub'
 
