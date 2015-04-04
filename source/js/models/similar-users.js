@@ -5,8 +5,8 @@ import events from 'pub-sub'
 let users = observable()
 
 users( () => {
-  events.trigger('users:updated')
-  events.trigger('users:show')
+  events.emit('users:updated')
+  events.emit('users:show')
 })
 
 events.on('users:find', (username) => {

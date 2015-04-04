@@ -6,7 +6,7 @@ $('#users').on('click', (e) => {
   if (e.target.className == 'play-likes') {
     e.preventDefault()
     let id = e.target.getAttribute('data-id')
-    events.trigger('player:new', id)
+    events.emit('player:new', id)
   }
 })
 

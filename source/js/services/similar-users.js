@@ -15,24 +15,24 @@ let getFriends = (username) => {
     // get userid from username
     sc.userID(username)
     .catch(err => {
-      events.trigger('loader:update', {message: 'Error finding username. Try again, butterfingers...', type: 'error'})
+      events.emit('loader:update', {message: 'Error finding username. Try again, butterfingers...', type: 'error'})
       reject(err)
     })
     // get last 50 favorite tracks
     .then(user => {
-      events.trigger('loader:update', {percentage: 10, message: `fetching ${username}'s favorites`})
+      events.emit('loader:update', {percentage: 10, message: `fetching ${username}'s favorites`})
       return sc.favorites(user.id)
     })
     // get all the people who favorited those tracks
     .then(favorites => {
       let allfavs = favorites.map(f => f.id).map(sc.trackFavorites)
-      events.trigger('loader:update', {percentage: 40, message: `finding other users, hang tight...`})
+      events.emit('loader:update', {percentage: 40, message: `finding other users, hang tight...`})
       return Promise.all(allfavs.map(suppress))
     })
     // assemble an array
     .then(favoriters => {
 
-      events.trigger('loader:update',{percentage: 80 , message: `comparing ${username} to other users`})
+      events.emit('loader:update',{percentage: 80 , message: `comparing ${username} to other users`})
 
       // flatten all of the favoriters into one array
       favoriters = flatten(favoriters).filter(f => f !== undefined)
@@ -51,7 +51,7 @@ let getFriends = (username) => {
         }
       })
 
-      events.trigger('loader:update', {percentage: 90, message: 'ranking users based on similarity'})
+      events.emit('loader:update', {percentage: 90, message: 'ranking users based on similarity'})
 
       let similarUsers = []
       let keys = Object.keys(users)
@@ -61,12 +61,12 @@ let getFriends = (username) => {
         similarUsers.push(users[key])
       })
 
-      events.trigger('loader:update', {percentage: 100, message: 'complete'})
+      events.emit('loader:update', {percentage: 100, message: 'complete'})
 
       resolve(similarUsers)
     })
     .catch(err => {
-      events.trigger('loader:update', {message: 'error fetching similar users', type: 'error'})
+      events.emit('loader:update', {message: 'error fetching similar users', type: 'error'})
       reject(err)
     })
   })

@@ -1,12 +1,7 @@
 /**
-* Create an events hub
+* Create an events bus
 */
-import Events from 'ampersand-events'
+import Emitter from 'tiny-emitter'
+var emitter = new Emitter()
 
-// Create a new event bus
-var events = Events.createEmitter()
-
-// list all bound events for debugging
-//events.on('all', () => console.log(events._events))
-
-export default events
+export default emitter
