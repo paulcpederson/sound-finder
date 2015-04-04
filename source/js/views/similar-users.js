@@ -1,5 +1,5 @@
 import model from '../models/similar-users.js'
-import * as templates from '../lib/templates.js'
+import view from '../../templates/users.dot'
 import diffDOM from 'diff-dom'
 import events from 'pub-sub'
 import $ from '$'
@@ -10,7 +10,7 @@ let dd = new diffDOM()
 
 events.on('users:updated', () => {
   let tmp = users.cloneNode(false)
-  tmp.innerHTML = templates.users.render({users: model()})
+  tmp.innerHTML = view({users: model()})
   dd.apply(users, dd.diff(users, tmp))
 })
 

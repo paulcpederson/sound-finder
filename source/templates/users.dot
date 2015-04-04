@@ -1,0 +1,19 @@
+<div class="block-grid">
+  {{~it.users :user}}
+    <div class="column-4 user">
+      <img src="{{=user.avatar_url}}" alt="" class="avatar">
+      <h4 class="username">
+        <a href="{{=user.permalink_url}}/">
+          {{=user.full_name || user.username}}
+        </a>
+      </h4>
+      <p class="city">{{=user.city||'earth'}}</p>
+      <nav class="user-nav">
+        <a href="{{=user.permalink_url}}/">stream</a>
+        <a href="{{=user.permalink_url}}/sets/">playlists</a>
+        <a href="{{=user.permalink_url}}/likes/">favorites</a>
+      </nav>
+      <a href="" class="play-likes" data-id="{{=user.id}}">PLAY</a>
+    </div>
+  {{~}}
+</div>

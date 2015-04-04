@@ -12,6 +12,7 @@
   },
   "browserify": {
     "transform": [
+      "dotify",
       "babelify",
       "browserify-shim"
     ]
@@ -37,12 +38,10 @@
   },
   "scripts": {
     "js": "browserify -e source/js/index.js -d -o build/bundle.js",
-    "templates": "hulk source/templates/*.html -w es6 > source/js/lib/templates.js",
     "sass": "scss-cli source/sass/*.scss --include-path node_modules/ -o build/",
     "img": "imagemin-newer source/img/ build",
-    "predev": "mkdir -p build && npm-run-all templates js sass img",
-    "watch": "rerun-script",
-    "dev": "parallelshell 'live-server' 'npm run watch'",
+    "predev": "mkdir -p build && npm-run-all js sass img",
+    "dev": "parallelshell 'live-server' 'rerun-script'",
     "test": "standard"
   },
   "author": "Paul C Pederson <paul.c.pederson@gmail.com> (http://paulcpederson.com/)",
@@ -59,7 +58,7 @@
     "babelify": "^5.0.4",
     "browserify": "^8.1.3",
     "browserify-shim": "^3.8.3",
-    "hogan.js": "paulcpederson/hogan.js",
+    "dotify": "^1.1.0",
     "imagemin-newer": "^1.0.1",
     "inline-block-grid": "paulcpederson/inline-block-grid",
     "live-server": "^0.6.3",
@@ -68,6 +67,6 @@
     "rerun-script": "^0.5.2",
     "scss-cli": "^0.0.5",
     "scss-utils": "*",
-    "standard": "3.0.0",
+    "standard": "3.0.0"
   }
 }
