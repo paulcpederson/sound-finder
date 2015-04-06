@@ -23,18 +23,9 @@
     "sound-cloud": "./source/js/lib/sound-cloud.js"
   },
   "watches": {
-    "js": [
-      "source/js/**"
-    ],
-    "templates": [
-      "source/templates/**"
-    ],
-    "sass": [
-      "source/sass/**"
-    ],
-    "img": [
-      "source/img/**"
-    ]
+    "js": "source/js/**",
+    "sass": "source/sass/**",
+    "img": "source/img/**"
   },
   "scripts": {
     "js": "browserify -e source/js/index.js -d -o build/bundle.js",
@@ -64,7 +55,7 @@
     "live-server": "^0.6.3",
     "npm-run-all": "^1.0.2",
     "parallelshell": "^1.0.4",
-    "rerun-script": "^0.5.2",
+    "rerun-script": "^0.6.0",
     "scss-cli": "^0.0.5",
     "scss-utils": "*",
     "standard": "3.0.0"
