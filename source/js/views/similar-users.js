@@ -1,4 +1,3 @@
-import model from '../models/similar-users.js'
 import view from '../../templates/users.dot'
 import diffDOM from 'diff-dom'
 import events from 'pub-sub'
@@ -8,16 +7,8 @@ let users = $('#users')[0]
 let $wrap = $('.user-wrap')
 let dd = new diffDOM()
 
-events.on('users:updated', () => {
+events.on('users:updated', (data) => {
   let tmp = users.cloneNode(false)
-  tmp.innerHTML = view({users: model()})
+  tmp.innerHTML = view({users: data})
   dd.apply(users, dd.diff(users, tmp))
-})
-
-events.on('users:show', () => {
-  $wrap.removeClass('move-out-right')
-})
-
-events.on('users:hide', () => {
-  $wrap.addClass('move-out-right')
 })

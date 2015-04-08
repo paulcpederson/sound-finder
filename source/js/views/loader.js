@@ -1,7 +1,6 @@
 import events from 'pub-sub'
 import $ from '$'
 
-let $wrap = $('.loader-wrap')
 let $loader = $('.loader')
 let $text = $('.loading-message')
 
