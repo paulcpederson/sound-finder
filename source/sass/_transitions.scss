@@ -1,10 +1,11 @@
 $transition-time: 300ms;
+$transition: transform $transition-time ease-in, opacity $transition-time ease-in, visibility 0ms ease-in $transition-time;
 
 .move-in {
   visibility: visible;
   opacity: 1;
   @include transform(translate3d(0,0,0));
-  @include transition-prefixed(transform $transition-time ease-in, opacity $transition-time ease-in, visibility 0ms ease-in $transition-time);
+  @include transition-prefixed($transition);
   visibility: visible;
   @include transition-delay(0ms);
 }
@@ -13,12 +14,12 @@ $transition-time: 300ms;
   visibility: hidden;
   opacity: 0;
   @include transform(translate3d(-400px, 0, 0));
-  @include transition-prefixed(transform $transition-time ease-in, opacity $transition-time ease-in, visibility 0ms ease-in $transition-time);
+  @include transition-prefixed($transition);
 }
 
 .move-out-right {
   visibility: hidden;
   opacity: 0;
   @include transform(translate3d(400px, 0, 0));
-  @include transition-prefixed(transform $transition-time ease-in, opacity $transition-time ease-in, visibility 0ms ease-in $transition-time);
+  @include transition-prefixed($transition);
 }
