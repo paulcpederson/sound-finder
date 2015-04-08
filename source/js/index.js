@@ -4,16 +4,10 @@
 import polyfill from 'array.from'
 
 /**
-* Import Models
-*/
-import userModel from './models/similar-users.js'
-
-/**
 * Import Views
 */
 import panesView from './views/panes.js'
 import loaderView from './views/loader.js'
-import searchView from './views/search.js'
 import playerView from './views/player.js'
 import usersView from './views/similar-users.js'
 import infoView from './views/info.js'
@@ -21,6 +15,8 @@ import infoView from './views/info.js'
 /**
 * Import Controllers
 */
+import infoController from './controllers/info.js'
 import searchController from './controllers/search.js'
 import playerController from './controllers/player.js'
+import usersController from './controllers/similar-users.js'
 
