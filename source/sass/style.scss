@@ -16,6 +16,7 @@ body {
   padding: 0;
   font-family: $light;
   background-color: $blue;
+  overflow-x: hidden;
   &:before {
     content: '';
     position: absolute;
