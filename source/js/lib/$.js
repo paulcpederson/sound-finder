@@ -32,9 +32,13 @@ function Query() {
 Query.prototype = Array.prototype
 
 let $ = selector => {
-  var collection = new Query();
-  collection.push(...document.querySelectorAll(selector))
-  return collection;
+  var collection = new Query()
+  if (selector.nodeType)
+    collection.push(selector)
+  else {
+    collection.push(...document.querySelectorAll(selector))
+  }
+  return collection
 }
 
 export default $
