@@ -6,7 +6,7 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>Sound Finder</title>
-    <!--<link rel="shortcut icon" href="/img/favicon.ico">-->
+    <link rel="shortcut icon" href="favicon.ico">
     <link type="text/css" rel="stylesheet" href="build/style.css">
   </head>
 
@@ -30,7 +30,7 @@
     </header>
 
     <!-- Search Input -->
-    <section class="search-wrap fullscreen move-in">
+    <section class="search-wrap fullscreen move-in" data-pane="1">
       <div class="container">
         <form class="username-form">
           <input type="text" class="username-search" id="username" placeholder="soundcloud username" autocomplete="off" autofocus>
@@ -40,7 +40,7 @@
     </section>
 
     <!-- Loading Indicator and Text -->
-    <section class="loader-wrap fullscreen move-in move-out-right">
+    <section class="loader-wrap fullscreen move-in move-out-right" data-pane="2">
       <div class="loader"></div>
       <div class="container">
         <h2 class="loading-message"></h2>
@@ -48,7 +48,7 @@
     </section>
 
     <!-- Similar Users Container -->
-    <section class="user-wrap fullscreen move-in move-out-right">
+    <section class="user-wrap fullscreen move-in move-out-right" data-pane="3">
       <div class="container">
         <div id="users" class="leader-20"></div>
       </div>

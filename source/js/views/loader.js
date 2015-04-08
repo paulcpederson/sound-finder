@@ -13,11 +13,3 @@ events.on('loader:update', ({percentage = 0, message = '', type = 'info'} = {}) 
   }
   $text[0].textContent = message
 })
-
-events.on('loader:show', () => {
-  $wrap.addClass('move-out-right').removeClass('move-out-left').removeClass('move-out-right')
-})
-
-events.on('users:updated', () => {
-  $text.addClass('move-out-left')
-})

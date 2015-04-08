@@ -11,6 +11,7 @@ import userModel from './models/similar-users.js'
 /**
 * Import Views
 */
+import panesView from './views/panes.js'
 import loaderView from './views/loader.js'
 import searchView from './views/search.js'
 import playerView from './views/player.js'
