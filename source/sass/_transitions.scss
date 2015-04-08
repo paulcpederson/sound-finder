@@ -10,16 +10,18 @@ $transition: transform $transition-time ease-in, opacity $transition-time ease-i
   @include transition-delay(0ms);
 }
 
-.move-out-left {
+.move-out-left, .move-out-right {
   visibility: hidden;
   opacity: 0;
+  overflow: hidden;
+}
+
+.move-out-left {
   @include transform(translate3d(-400px, 0, 0));
   @include transition-prefixed($transition);
 }
 
 .move-out-right {
-  visibility: hidden;
-  opacity: 0;
   @include transform(translate3d(400px, 0, 0));
   @include transition-prefixed($transition);
 }
