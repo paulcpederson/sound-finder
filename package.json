@@ -31,7 +31,7 @@
     "js": "browserify -e source/js/index.js -d -o build/bundle.js",
     "sass": "scss-cli source/sass/*.scss --include-path node_modules/ -o build/",
     "img": "imagemin-newer source/img/ build",
-    "predev": "mkdir -p build && npm-run-all js sass img",
+    "predev": "mkdir -p build && npm-run-all js sass img --parallel",
     "dev": "parallelshell 'live-server' 'rerun-script'",
     "test": "standard"
   },
