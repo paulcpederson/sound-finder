@@ -16,6 +16,7 @@ import infoView from './views/info.js'
 * Import Controllers
 */
 import infoController from './controllers/info.js'
+import loaderController from './controllers/loader.js'
 import searchController from './controllers/search.js'
 import playerController from './controllers/player.js'
 import usersController from './controllers/similar-users.js'
