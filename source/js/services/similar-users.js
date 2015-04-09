@@ -2,9 +2,7 @@ import sc from 'sound-cloud'
 import flatten from 'array-flatten'
 
 // suppress errors in optional calls
-let suppress = x => {
-  x.catch(function (err) { console.log(err) })
-}
+let suppress = x => x.catch(err => console.log(err))
 
 /**
  * Rank a set of users on how many shared favorites they have
@@ -56,7 +54,7 @@ let getFriends = (username, ee) => {
     return Promise.all(allfavs.map(suppress))
   })
 
-  .then(favoriters => ee.emit('done', rank(similarUsers)))
+  .then(favoriters => ee.emit('done', rank(favoriters)))
 
   .catch(err => ee.emit('error', 'error fetching similar users'))
 }
