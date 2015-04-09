@@ -1,75 +1,64 @@
 import sc from 'sound-cloud'
 import flatten from 'array-flatten'
-import events from 'pub-sub'
 
 // suppress errors in optional calls
-let suppress = x => x.catch(function (err) { console.log(err) })
+let suppress = x => {
+  x.catch(function (err) { console.log(err) })
+}
+
+/**
+ * Rank a set of users on how many shared favorites they have
+ * @param {Array} favoriters Array of users (contains duplicates)
+ * @returns {Array} 30 most similar users
+ */
+function rank (favoriters) {
+  favoriters = flatten(favoriters).filter(f => f !== undefined)
+
+  let users = {}
+  let hash = favoriters.map(f => f.id)
+
+  hash.forEach((id, i) => {
+    if (users[id]) {
+      users[id].similarity += 1
+    } else {
+      users[id] = favoriters[i]
+      users[id].similarity = 1
+    }
+  })
+
+  let rankedUsers = Object.keys(users)
+  .sort((a,b) => users[b].similarity - users[a].similarity)
+  .slice(0, 30)
+  .map(key => users[key])
+
+  return rankedUsers
+}
 
 /**
  * Get Soundcloud users that are like another user
  * @param {String} username Username of the user you'd like to research
+ * @param {Object} ee EventEmitter
  * @returns {Promise} Resolved with an array of similar user objects
  */
-let getFriends = (username) => {
-  return new Promise((resolve, reject) => {
-    // get userid from username
-    sc.userID(username)
-    .catch(err => {
-      events.emit('loader:update', {message: 'Error finding username. Try again, butterfingers...', type: 'error'})
-      reject(err)
-    })
-    // get last 50 favorite tracks
-    .then(user => {
-      events.emit('loader:update', {percentage: 10, message: `fetching ${username}'s favorites`})
-      return sc.favorites(user.id)
-    })
-    // get all the people who favorited those tracks
-    .then(favorites => {
-      let allfavs = favorites.map(f => f.id).map(sc.trackFavorites)
-      events.emit('loader:update', {percentage: 40, message: `finding other users, hang tight...`})
-      return Promise.all(allfavs.map(suppress))
-    })
-    // assemble an array
-    .then(favoriters => {
+let getFriends = (username, ee) => {
+  sc.userID(username)
 
-      events.emit('loader:update',{percentage: 80 , message: `comparing ${username} to other users`})
+  .catch(err => ee.emit('error', 'Error finding username. Try again, butterfingers...'))
 
-      // flatten all of the favoriters into one array
-      favoriters = flatten(favoriters).filter(f => f !== undefined)
-
-      // create a hash of all user ids
-      let users = {}
-      let hash = favoriters.map(f => f.id)
-
-      // iterate over all ids, incrementing similarity
-      hash.forEach((id, i) => {
-        if (users[id]) {
-          users[id].similarity += 1
-        } else {
-          users[id] = favoriters[i]
-          users[id].similarity = 1
-        }
-      })
-
-      events.emit('loader:update', {percentage: 90, message: 'ranking users based on similarity'})
-
-      let similarUsers = []
-      let keys = Object.keys(users)
-      .sort((a,b) => users[b].similarity - users[a].similarity)
-      .slice(0, 30)
-      .forEach((key) => {
-        similarUsers.push(users[key])
-      })
-
-      events.emit('loader:update', {percentage: 100, message: 'complete'})
-
-      resolve(similarUsers)
-    })
-    .catch(err => {
-      events.emit('loader:update', {message: 'error fetching similar users', type: 'error'})
-      reject(err)
-    })
+  .then(user => {
+    ee.emit('data', 10, `fetching ${username}'s favorites`)
+    return sc.favorites(user.id)
   })
+
+  .then(favorites => {
+    let allfavs = favorites.map(f => f.id).map(sc.trackFavorites)
+    ee.emit('data', 40, 'finding other users, hang tight...')
+    return Promise.all(allfavs.map(suppress))
+  })
+
+  .then(favoriters => ee.emit('done', rank(similarUsers)))
+
+  .catch(err => ee.emit('error', 'error fetching similar users'))
 }
 
 export default getFriends
