@@ -10,12 +10,12 @@ let suppress = x => x.catch(err => console.log(err))
  * @returns {Array} 30 most similar users
  */
 function rank (favoriters) {
-  favoriters = flatten(favoriters).filter(f => f !== undefined)
+  favoriters = flatten(favoriters).filter(f => f)
 
   let users = {}
-  let hash = favoriters.map(f => f.id)
+  let ids = favoriters.map(f => f.id)
 
-  hash.forEach((id, i) => {
+  ids.forEach((id, i) => {
     if (users[id]) {
       users[id].similarity += 1
     } else {
