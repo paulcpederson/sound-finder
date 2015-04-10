@@ -3,7 +3,6 @@ import Emitter from 'tiny-emitter'
 import events from 'pub-sub'
 import $ from '$'
 
-
 let emitter = new Emitter()
 
 emitter.on('error', err => {

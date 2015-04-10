@@ -25,7 +25,7 @@ function rank (favoriters) {
   })
 
   let rankedUsers = Object.keys(users)
-  .sort((a,b) => users[b].similarity - users[a].similarity)
+  .sort((a, b) => users[b].similarity - users[a].similarity)
   .slice(0, 30)
   .map(key => users[key])
 
@@ -41,7 +41,7 @@ function rank (favoriters) {
 let getFriends = (username, ee) => {
   sc.userID(username)
 
-  .catch(err => ee.emit('error', 'Error finding username. Try again, butterfingers...'))
+  .catch(() => ee.emit('error', 'Error finding username. Try again, butterfingers...'))
 
   .then(user => {
     ee.emit('data', 10, `fetching ${username}'s favorites`)
@@ -56,7 +56,7 @@ let getFriends = (username, ee) => {
 
   .then(favoriters => ee.emit('done', rank(favoriters)))
 
-  .catch(err => ee.emit('error', 'error fetching similar users'))
+  .catch(() => ee.emit('error', 'error fetching similar users'))
 }
 
 export default getFriends

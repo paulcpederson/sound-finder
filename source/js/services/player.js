@@ -1,4 +1,4 @@
-import SoundCloud from 'SC'
+import SC from 'SC'
 
 // Initialize soundcloud client
 SC.initialize({

@@ -1,4 +1,4 @@
-//import view from '../../templates/users.dot'
+// import view from '../../templates/users.dot'
 import diffDOM from 'diff-dom'
 import events from 'pub-sub'
 import $ from '$'

@@ -10,4 +10,3 @@ events.on('player:new', (id) => {
   })
   .catch(err => console.log(err))
 })
-

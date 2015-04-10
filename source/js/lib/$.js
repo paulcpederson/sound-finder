@@ -1,7 +1,7 @@
 /**
 * Create a new array like object of dom elements
 */
-function Query() {
+function Query () {
   this.each = (fn) => {
     this.forEach(fn)
     return this
@@ -33,9 +33,9 @@ Query.prototype = Array.prototype
 
 let $ = selector => {
   var collection = new Query()
-  if (selector.nodeType)
+  if (selector.nodeType) {
     collection.push(selector)
-  else {
+  } else {
     collection.push(...document.querySelectorAll(selector))
   }
   return collection

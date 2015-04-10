@@ -10,7 +10,7 @@ let previous = 1
  */
 events.on('pane', (n) => {
   $panes.forEach(el => {
-    let pane = parseInt(el.dataset.pane)
+    let pane = parseInt(el.dataset.pane, 10)
     let $el = $(el)
     if (pane < n) {
       // slide pane off left
