@@ -15,10 +15,7 @@ let player = {
     })
   },
   play: () => player.sound.play(),
-  pause: () => player.sound.pause(),
-  next: () => {
-
-  }
+  pause: () => player.sound.pause()
 }
 
 // var analyser = context.createAnalyser()
