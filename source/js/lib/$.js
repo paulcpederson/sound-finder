@@ -2,6 +2,11 @@
 * Create a new array like object of dom elements
 */
 function Query () {
+  /**
+  * Apply a function to every element in collection
+  * @param {Function} fn Function to apply to every element
+  * @return Query
+  */
   this.each = (fn) => {
     this.forEach(fn)
     return this
@@ -23,10 +28,22 @@ function Query () {
   this.toggleClass = className => this.each(e => e.classList.toggle(className))
   /**
   * Attach an event listener with a callback to the selected elements
-  * @param {String} event Name of event, eg. "click", "mouseover", etc...
+  * Automatically removes listner if it already exists to avoid duplicates
+  * @param {String}   event    Name of event, eg. "click", "mouseover", etc...
   * @param {Function} callback The function to call when the event is triggered
   */
-  this.on = (event, fn) => this.each(e => e.addEventListener(event, fn, false))
+  this.on = (event, fn) => {
+    this.each(e => {
+      e.removeEventListener(event, fn, false)
+      e.addEventListener(event, fn, false)
+    })
+  }
+  /**
+  * Remove an event listener with a callback to the selected elements
+  * @param {String}   event    Name of event, eg. "click", "mouseover", etc...
+  * @param {Function} callback The function to call when the event is triggered
+  */
+  this.off = (event, fn) => this.each(e => e.removeEventListener(event, fn, false))
 }
 
 Query.prototype = Array.prototype
