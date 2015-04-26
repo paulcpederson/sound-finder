@@ -11,6 +11,7 @@ import loaderView from './views/loader.js'
 import playerView from './views/player.js'
 import usersView from './views/similar-users.js'
 import infoView from './views/info.js'
+import visualizer from './views/visualizer.js'
 
 /**
 * Import Controllers
