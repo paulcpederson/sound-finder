@@ -13,18 +13,13 @@ events.on('pane', (n) => {
     let pane = parseInt(el.dataset.pane, 10)
     let $el = $(el)
     if (pane < n) {
-      // slide pane off left
       $el.addClass('move-out-left')
     } else if (pane > n) {
-      // slide pane off to the right
       $el.addClass('move-out-right')
     } else {
-      // make this the active pane
       if (previous < n) {
-        // animate in from right
         $el.addClass('move-out-right').removeClass('move-out-left').removeClass('move-out-right')
       } else {
-        // animate in from left
         $el.addClass('move-out-left').removeClass('move-out-right').removeClass('move-out-left')
       }
     }
