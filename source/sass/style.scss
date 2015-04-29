@@ -143,3 +143,8 @@ body {
   width: 100vw;
   z-index: 1;
 }
+
+#visualizer {
+  -webkit-filter: url("#goo-no-comp");
+          filter: url("../index.html#goo-no-comp");
+}
