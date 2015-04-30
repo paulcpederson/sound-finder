@@ -1,11 +1,14 @@
 // Save items to local storage
 // Surface add, remove, update, and delete
 import Emitter from 'tiny-emitter'
-import guid from '../lib/guid.js'
-import extend from 'util-extend'
+import assign from 'object-assign'
 
 function get (KEY) {
-  return JSON.parse(localStorage[KEY])
+  if (localStorage[KEY]) {
+    return JSON.parse(localStorage[KEY])
+  } else {
+    return undefined
+  }
 }
 
 function set (KEY, value) {
@@ -13,25 +16,34 @@ function set (KEY, value) {
   return get(KEY)
 }
 
-function store (arg) {
+function Store (ee, arg) {
+  let KEY = this.KEY
   if (!arg) {
-    return get(this.KEY)
+    return get(KEY)
   } else {
     if (typeof arg === 'function') {
-      let copy = get(this.KEY)
-      let newValue = arg(copy)
-      set(newValue)
+      let newValue = arg(get(KEY))
+      set(KEY, newValue)
     } else {
-      set(arg)
+      set(KEY, arg)
     }
-    this.emit('changed', get(this.KEY))
+    ee.emit('changed', get(KEY))
+    return get(KEY)
   }
 }
 
 function getStore (KEY) {
-  let Store = extend(store, new Emitter())
-  Store.key = KEY
-  return Store
+  let ee = new Emitter()
+  let store = Store.bind({KEY}, ee)
+
+  store.on = ee.on
+  store.emit = ee.emit
+
+  ee.on('changed', value => {
+    store.emit('changed', value)
+  })
+
+  return store
 }
 
-export default setStore
+export default getStore

@@ -5,7 +5,6 @@ import Store from '../lib/store.js'
 import playlist from '../services/playlist.js'
 
 let store = Store('player')
-let ee = new Emitter()
 
 controller.on('new', id => {
   playlist(id).then(tracks => {
@@ -19,18 +18,24 @@ controller.on('new', id => {
 })
 
 controller.on('next', () => {
-  store(s => s.current++)
+  store(s => {
+    s.current++
+    return s
+  })
 })
 
 controller.on('prev', () => {
-  store(s => s.current--)
+  store(s => {
+    s.current--
+    return s
+  })
 })
 
 controller.on('play', () => {
-  store(s => s.playing = !s.playing)
+  store(s => {
+    s.playing = !s.playing
+    return s
+  })
 })
 
-store.on('changed', store => ee.emit('changed', store))
-
-export default ee
-
+export default store
