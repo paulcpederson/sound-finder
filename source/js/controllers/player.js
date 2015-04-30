@@ -15,7 +15,7 @@ function getPlayer (tracks) {
   analyser.connect(context.destination)
 
   player.setAttribute('src', `${tracks[0].stream_url}?client_id=739b39925c3cc275aeb03837ff27762c`)
-  events.emit('visualize', analyser, dataStream)
+  events.emit('play', analyser, dataStream)
 }
 
 // Code to deal with play, pause, next

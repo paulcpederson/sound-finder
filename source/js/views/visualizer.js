@@ -33,7 +33,9 @@ function draw(analyser, data) {
 
 $('window').on('resize', resize)
 
-events.on('visualize', (analyser, data) => {
+events.on('play', (analyser, data) => {
   playing = true
   draw(analyser, data)
 })
+
+events.on('pause', () => playing = false)
