@@ -1,7 +1,5 @@
 // Save items to local storage
-// Surface add, remove, update, and delete
 import Emitter from 'tiny-emitter'
-import assign from 'object-assign'
 
 function get (KEY) {
   if (localStorage[KEY]) {
@@ -38,6 +36,8 @@ function getStore (KEY) {
 
   store.on = ee.on
   store.emit = ee.emit
+  store.once = ee.once
+  store.off = ee.off
 
   ee.on('changed', value => {
     store.emit('changed', value)
