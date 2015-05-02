@@ -34,10 +34,11 @@
   "author": "Paul C Pederson <paul.c.pederson@gmail.com> (http://paulcpederson.com/)",
   "license": "ISC",
   "dependencies": {
-    "array.from": "^0.2.0",
     "array-flatten": "^1.0.2",
+    "array.from": "^0.2.0",
     "diff-dom": "^1.0.0",
     "mess": "^0.1.2",
+    "node-sass": "^3.0.0-beta.7",
     "observable": "^2.1.3",
     "tiny-emitter": "^1.0.0"
   },
