@@ -21,15 +21,16 @@
   "watches": {
     "js": "source/js/**",
     "sass": "source/sass/**",
-    "img": "source/img/**"
+    "img": "source/img/**",
+    "html": "source/index.html"
   },
   "scripts": {
     "js": "browserify -e source/js/index.js -d -o build/bundle.js",
     "sass": "node-sass source/sass/ -o build/ --include-path node_modules/ -q",
     "img": "imagemin-newer source/img/ build",
-    "predev": "mkdir -p build && npm-run-all js sass img --parallel",
-    "dev": "parallelshell 'live-server' 'rerun-script'",
-    "test": "standard"
+    "html": "cp source/*.* build/",
+    "predev": "mkdir -p build && npm-run-all js sass img html --parallel",
+    "dev": "parallelshell 'cd build && live-server' 'rerun-script'"
   },
   "author": "Paul C Pederson <paul.c.pederson@gmail.com> (http://paulcpederson.com/)",
   "license": "ISC",
