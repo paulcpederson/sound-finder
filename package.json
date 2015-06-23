@@ -49,7 +49,7 @@
     "imagemin-newer": "^1.0.1",
     "inline-block-grid": "paulcpederson/inline-block-grid",
     "live-server": "^0.6.3",
-    "node-sass": "^3.0.0-beta.7",
+    "node-sass": "^3.2.0",
     "npm-run-all": "^1.0.2",
     "parallelshell": "^1.0.4",
     "rerun-script": "^0.6.0",
