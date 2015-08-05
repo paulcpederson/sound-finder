@@ -25,6 +25,7 @@
   bottom: 0;
   left: 0;
   @include transition(all 150ms ease-out);
+  pointer-events: none;
 }
 
 .user-text {

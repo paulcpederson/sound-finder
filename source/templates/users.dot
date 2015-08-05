@@ -1,9 +1,9 @@
 {{~it.users :user}}
-  <a class="user js-play-likes" href="" data-id="{{=user.id}}">
-    <div class="user-avatar" style="background-image: url({{=user.avatar_url}})"></div>
+  <a class="user js-play-likes" href="#" data-id="{{=user.id}}" data-avatar="">
     <h4 class="user-text">
         {{=user.full_name || user.username}}
     </h4>
     <p class="user-text">{{=user.city||'earth'}}</p>
+    <span class="user-avatar" style="background-image: url({{=user.avatar_url}})"></span>
   </a>
 {{~}}
