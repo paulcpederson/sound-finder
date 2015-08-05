@@ -26,19 +26,17 @@ body {
     left: 0;
     display: block;
     background: url(desk-b&w.jpg) no-repeat center center $blue;
-    opacity: .15;
+    opacity: .1;
     background-size: cover;
   }
 }
 
 .container {
   width: 100%;
-  max-width: 48rem;
   @include box-sizing(border-box);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  margin: 0;
+  padding-left: 5vw;
+  padding-right: 5vw;
   position: relative;
   z-index: 2;
 }
@@ -75,10 +73,10 @@ body {
   margin: 0;
   padding-top: 5vh;
   @include bold();
-  font-size: .85rem;
-  letter-spacing: 1px;
+  font-size: .9rem;
+  letter-spacing: 0.1em;
   color: #ffffff;
-  opacity: .4;
+  opacity: .8;
   text-decoration: none;
 }
 
@@ -93,11 +91,11 @@ body {
   outline: none;
   color: white;
   @include bold();
-  font-size: 4rem;
+  font-size: 8.5vw;
   background: transparent;
   border: none;
-  border-bottom: 2px dashed white;
   z-index: 2;
+  opacity: .9;
   @include placeholder() {
     color: white;
     opacity: .4;
