@@ -1,34 +1,45 @@
+@import 'colors';
+@import 'scss-utils/scss-utils';
+
 .user {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  font-family: $light;
-  color: rgba(255,255,255,.85);
-  a {
-    color: rgba(255,255,255,.85);
-    padding-bottom: 3px;
-    border-bottom: 2px solid transparent;
-    @include transition(all 200ms linear);
-    &:hover {
-      color: rgba(255,255,255,1);
-      border-bottom-color: white;
-    }
-  }
-}
-
-.username {
-  display: inline-block;
-  margin: 0.5em 0 .25em 0;
-}
-
-.city {
-  margin: 0;
-}
-
-.avatar {
+  width: 25vw;
+  height: 25vw;
+  position: relative;
   float: left;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  margin-right: .5em;
+  margin: 0;
+  background-color: black;
+  @include box-sizing(border-box);
+  padding: 2rem;
+  color: rgba(255,255,255,.85);
+}
+
+.user-avatar {
+  @include prefixer(filter, grayscale(100%), webkit moz spec);
+  position: absolute;
+  background-repeat: none;
+  background-color: transparent;
+  background-size: cover;
+  opacity: .3;
+  top: 0;
+  right: -1px;
+  bottom: 0;
+  left: 0;
+  @include transition(all 150ms ease-out);
+}
+
+.user-text {
+  z-index: 2;
+  position: relative;
+  opacity: .5;
+}
+
+.user:hover {
+  .user-avatar {
+    opacity: .7;
+    @include prefixer(filter, grayscale(0%), webkit moz spec);
+  }
+  .user-text {
+    opacity: 1;
+  }
 }
 

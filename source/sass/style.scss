@@ -1,15 +1,13 @@
 @import 'scss-utils/scss-utils';
 @import 'type';
+@import 'colors';
 
 $font-reset: $light;
-
 @import 'inline-block-grid/grid';
+
 @import 'transitions';
 @import 'users';
 
-$blue: #20BDDB;
-$light-blue: #40C5DF;
-$dark-blue: #148CBA;
 
 body {
   margin: 0;
@@ -60,8 +58,9 @@ body {
   display: inline-block;
 }
 
-.leader-20 { margin-top: 20vh; }
-.leader-30 { margin-top: 30vh; }
+.leader-1 { margin-top: 10vh; }
+.leader-2 { margin-top: 20vh; }
+.leader-3 { margin-top: 30vh; }
 
 .fullscreen {
   width: 100%;
@@ -80,22 +79,24 @@ body {
   text-decoration: none;
 }
 
+.big-text {
+  margin-top: 40vh;
+  color: white;
+  font-size: 7vw;
+  background: transparent;
+  z-index: 2;
+  opacity: .9;
+}
+
 .username-search {
   position: relative;
   display: block;
   @include box-sizing(border-box);
   width: 100%;
   padding: .75rem 0;
-  margin-top: 35vh;
-  margin-bottom: 30vh;
   outline: none;
-  color: white;
   @include bold();
-  font-size: 8.5vw;
-  background: transparent;
   border: none;
-  z-index: 2;
-  opacity: .9;
   @include placeholder() {
     color: white;
     opacity: .4;
@@ -128,16 +129,9 @@ body {
   &.p60 { width: 60%; }
 }
 
-.loading-message {
-  padding-top: 35vh;
-  color: rgba(255,255,255,.4);
-  @include bold();
-  font-size: 3rem;
-  z-index: 2;
-}
-
 .navigation {
-  position: fixed;
+  position: absolute;
+  top: 0;
   width: 100vw;
   z-index: 1;
 }
