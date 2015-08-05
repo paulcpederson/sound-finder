@@ -7,9 +7,9 @@
   position: relative;
   float: left;
   margin: 0;
-  background-color: black;
+  background-color: $darker-blue;
   @include box-sizing(border-box);
-  padding: 2rem;
+  padding: 15vw 3vw 3vw 3vw;
   color: rgba(255,255,255,.85);
 }
 
