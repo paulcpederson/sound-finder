@@ -56,7 +56,10 @@ let getFriends = (username, ee) => {
 
   .then(favoriters => ee.emit('done', rank(favoriters)))
 
-  .catch(() => ee.emit('error', 'error fetching similar users'))
+  .catch(err => {
+    console.log(err, err.stack)
+    ee.emit('error', 'error fetching similar users')
+  })
 }
 
 export default getFriends
