@@ -19,18 +19,18 @@
     "sound-cloud": "./source/js/lib/sound-cloud.js"
   },
   "watches": {
-    "js": "source/js/**",
     "sass": "source/sass/**",
     "img": "source/img/**",
     "html": "source/index.html"
   },
   "scripts": {
-    "js": "browserify -e source/js/index.js -d -o build/bundle.js",
+    "js": "simplifyify source/js/index.js -d -m -o build/",
+    "js:watch": "npm run js -- -w",
     "sass": "node-sass source/sass/ -o build/ --include-path node_modules/ -q",
     "img": "imagemin-newer source/img/ build",
     "html": "cp source/*.* build/",
-    "predev": "mkdir -p build && npm-run-all js sass img html --parallel",
-    "dev": "parallelshell 'cd build && live-server' 'rerun-script'"
+    "predev": "mkdir -p build && npm-run-all sass img html --parallel",
+    "dev": "parallelshell 'cd build && live-server' 'rerun-script' 'npm run js:watch'"
   },
   "author": "Paul C Pederson <paul.c.pederson@gmail.com> (http://paulcpederson.com/)",
   "license": "ISC",
@@ -44,7 +44,6 @@
   },
   "devDependencies": {
     "babelify": "^5.0.4",
-    "browserify": "^8.1.3",
     "dotify": "^1.1.0",
     "imagemin-newer": "^1.0.1",
     "inline-block-grid": "paulcpederson/inline-block-grid",
@@ -54,6 +53,7 @@
     "parallelshell": "^1.0.4",
     "rerun-script": "^0.6.0",
     "scss-utils": "*",
+    "simplifyify": "^1.3.0",
     "standard": "3.0.0"
   }
 }
