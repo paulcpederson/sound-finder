@@ -12,8 +12,6 @@ function resize() {
   barWidth = canvas.width / 16
 }
 
-resize()
-
 // update the visualizer
 function draw(analyser, data) {
   analyser.getByteFrequencyData(data)
@@ -36,6 +34,7 @@ $('window').on('resize', resize)
 events.on('play', (analyser, data) => {
   playing = true
   draw(analyser, data)
+  resize()
 })
 
 events.on('pause', () => playing = false)
