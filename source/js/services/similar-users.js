@@ -26,7 +26,7 @@ function rank (favoriters) {
 
   let rankedUsers = Object.keys(users)
   .sort((a, b) => users[b].similarity - users[a].similarity)
-  .slice(0, 30)
+  .slice(0, 28)
   .map(key => users[key])
 
   return rankedUsers
