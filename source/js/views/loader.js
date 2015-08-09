@@ -30,35 +30,32 @@ function resize () {
   }
 }
 
-// update each node on each frame
-var active = 150 // the node that is going up and down
+var active = 150
 var amplitude = 1000
 var timer = setInterval(update, 30)
 
 function update () {
-  var dd = 18
   ctx.clearRect(0, 0, width, height)
+  var period = 18
+
   amplitude = amplitude * 0.1
   deltas[active] = amplitude
-  // nodes to the left of the active node
-  for (var i = active - 1; i > 0; i--) {
-    var node = active - i
-    if (node > dd) {
-      node = dd
-    }
+
+  //nodes to the left of the active node
+  for (let i = active - 1; i > 0; i--) {
+    var node = Math.min(active - i, period)
     deltas[i] -= (deltas[i] - deltas[i + 1]) * (1 - 0.01 * node)
   }
+
   // nodes to the right of the active node
-  for (var i = active + 1; i < size; i++) {
-    var d = i-active;
-    if(d > dd)d=dd;
-    deltas[i] -= (deltas[i] - deltas[i - 1]) * (1 - 0.01 * d)
+  for (let i = active + 1; i < size; i++) {
+    var node = Math.min(i - active, period)
+    deltas[i] -= (deltas[i] - deltas[i - 1]) * (1 - 0.01 * node)
   }
 
   nodes.forEach((node, i) => node.updateY(deltas[i]))
   drawPath('rgba(0, 139, 188, .8)', 0, 0)
   drawPath('rgba(33, 47, 75, .8)', 15, 5)
-
 }
 
 function drawPath (color, offsetX, offSetY) {
