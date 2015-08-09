@@ -40,7 +40,7 @@
     </header>
 
     <!-- Search Input -->
-    <section class="search-wrap fullscreen move-in" data-pane="1">
+    <section class="search-wrap fullscreen move-in move-out-right" data-pane="1">
       <div class="container">
         <form class="username-form">
           <input type="text" class="username-search big-text" id="username" placeholder="soundcloud username..." autocomplete="off" autofocus>
@@ -50,8 +50,8 @@
     </section>
 
     <!-- Loading Indicator and Text -->
-    <section class="loader-wrap fullscreen move-in move-out-right" data-pane="2">
-      <div class="loader"></div>
+    <section class="loader-wrap fullscreen move-in " data-pane="2">
+      <canvas class="js-loader-canvas loader-canvas"></canvas>
       <div class="container">
         <h2 class="loading-message big-text"></h2>
       </div>
