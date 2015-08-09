@@ -25,7 +25,7 @@ function resize () {
   height = canvas.height = canvas.offsetHeight
   var length = width / (size - 1)
   for (var i = 0; i < size; i++) {
-    nodes[i] = Vertex(length * i, height / 2, height / 2)
+    nodes[i] = Vertex(length * i, height, height)
     deltas[i] = 0
   }
 }
@@ -80,6 +80,9 @@ function Vertex (x, y, baseY) {
     targetY: 0,
     friction: 0.15,
     deceleration: 0.95,
+    updateBaseY (newY) {
+      this.baseY = newY
+    },
     updateY (diffVal) {
       this.targetY = diffVal + this.baseY
       this.vy += this.targetY - this.y
@@ -89,8 +92,22 @@ function Vertex (x, y, baseY) {
   }
 }
 
+function raiseWaterLevel (y) {
+  nodes = nodes.map(n => {
+    n.baseY = y
+    return n
+  })
+}
+
+var count = 0
+
 // this creates a "drop" on the surface
 canvas.onmousedown = function (e) {
-  amplitude = 1000
-  active = 170
+  count++
+  if (count % 2 === 0) {
+    amplitude = 1000
+    active = 170
+  } else {
+    raiseWaterLevel(height - (count * 10))
+  }
 }
