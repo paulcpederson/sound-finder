@@ -80,9 +80,6 @@ function Vertex (x, y, baseY) {
     targetY: 0,
     friction: 0.15,
     deceleration: 0.95,
-    updateBaseY (newY) {
-      this.baseY = newY
-    },
     updateY (diffVal) {
       this.targetY = diffVal + this.baseY
       this.vy += this.targetY - this.y
@@ -102,6 +99,7 @@ function raiseWaterLevel (y) {
 var count = 0
 
 // this creates a "drop" on the surface
+// on click for testing
 canvas.onmousedown = function (e) {
   count++
   if (count % 2 === 0) {
