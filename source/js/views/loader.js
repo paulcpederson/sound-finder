@@ -1,111 +1,27 @@
 import events from 'pub-sub'
 import $ from '$'
+import Wave from '../lib/wave'
 
 let $text = $('.loading-message')
+var canvas = document.querySelector('.js-loader-canvas')
+var ctx = canvas.getContext('2d')
+
+var wave = Wave({
+  canvas,
+  waterLevel: 0
+})
+
+var timer = setInterval(function () {
+  ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight)
+  wave.draw()
+}, 30)
 
 events.on('loader:update', ({percentage = 0, message = '', type = 'info'} = {}) => {
   $text[0].textContent = message
+  wave.addDrop(50)
+  wave.setWaterLevel(percentage)
 })
 
-var canvas = document.querySelector('.js-loader-canvas')
-var ctx = canvas.getContext('2d')
-var width = canvas.offsetWidth + 40
-var height = canvas.offsetHeight
+window.wave = wave
 
-var size = 300
-var nodes = []
-var deltas = []
-
-// On resize (or on load, build out the nodes)
-window.addEventListener('resize', resize)
-resize()
-
-function resize () {
-  width = canvas.width = canvas.offsetWidth + 40;
-  height = canvas.height = canvas.offsetHeight
-  var length = width / (size - 1)
-  for (var i = 0; i < size; i++) {
-    nodes[i] = Vertex(length * i, height, height)
-    deltas[i] = 0
-  }
-}
-
-var active = 150
-var amplitude = 1000
-var timer = setInterval(update, 30)
-
-function update () {
-  ctx.clearRect(0, 0, width, height)
-  var period = 18
-
-  amplitude = amplitude * 0.1
-  deltas[active] = amplitude
-
-  //nodes to the left of the active node
-  for (let i = active - 1; i > 0; i--) {
-    var node = Math.min(active - i, period)
-    deltas[i] -= (deltas[i] - deltas[i + 1]) * (1 - 0.01 * node)
-  }
-
-  // nodes to the right of the active node
-  for (let i = active + 1; i < size; i++) {
-    var node = Math.min(i - active, period)
-    deltas[i] -= (deltas[i] - deltas[i - 1]) * (1 - 0.01 * node)
-  }
-
-  nodes.forEach((node, i) => node.updateY(deltas[i]))
-  drawPath('rgba(0, 139, 188, .8)', 0, 0)
-  drawPath('rgba(33, 47, 75, .8)', 15, 5)
-}
-
-function drawPath (color, offsetX, offSetY) {
-  ctx.beginPath()
-  ctx.moveTo(0, height)
-  ctx.fillStyle = color
-  ctx.lineTo(nodes[0].x + offsetX, nodes[0].y + offSetY)
-  nodes.forEach(n =>  {
-    ctx.lineTo(n.x + offsetX, n.y + offSetY)
-  })
-  ctx.lineTo(width, height)
-  ctx.lineTo(0, height)
-  ctx.fill()
-}
-
-function Vertex (x, y, baseY) {
-  return {
-    baseY,
-    x,
-    y,
-    vy: 0,
-    targetY: 0,
-    friction: 0.15,
-    deceleration: 0.95,
-    updateY (diffVal) {
-      this.targetY = diffVal + this.baseY
-      this.vy += this.targetY - this.y
-      this.y += this.vy * this.friction
-      this.vy *= this.deceleration
-    }
-  }
-}
-
-function raiseWaterLevel (y) {
-  nodes = nodes.map(n => {
-    n.baseY = y
-    return n
-  })
-}
-
-var count = 0
-
-// this creates a "drop" on the surface
-// on click for testing
-canvas.onmousedown = function (e) {
-  count++
-  if (count % 2 === 0) {
-    amplitude = 1000
-    active = 170
-  } else {
-    raiseWaterLevel(height - (count * 10))
-  }
-}
+console.log(wave)
