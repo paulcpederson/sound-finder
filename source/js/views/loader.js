@@ -11,10 +11,12 @@ var wave = Wave({
   waterLevel: 0
 })
 
-var timer = setInterval(function () {
+function renderLoop () {
   ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight)
   wave.draw()
-}, 30)
+}
+console.log(canvas)
+var timer = setInterval(renderLoop, 30)
 
 events.on('loader:update', ({percentage = 0, message = '', type = 'info'} = {}) => {
   $text[0].textContent = message

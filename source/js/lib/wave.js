@@ -2,7 +2,6 @@ import assign from 'object-assign'
 
 var defaultLevel = 50
 var defaultColors = ['rgba(0, 139, 188, .8)', 'rgba(33, 47, 75, .8)']
-var size = 300
 
 function Vertex (x, y, baseY) {
   return {
@@ -24,6 +23,7 @@ function Vertex (x, y, baseY) {
 
 function getWave ({level = defaultLevel, colors = defaultColors, canvas}) {
   var w = {
+    size: 300,
     active: 150,
     amplitude: 1000,
     nodes: [],
@@ -53,7 +53,7 @@ function getWave ({level = defaultLevel, colors = defaultColors, canvas}) {
         deltas[i] -= (deltas[i] - deltas[i + 1]) * (1 - 0.01 * node)
       }
       // nodes to the right of the active node
-      for (let i = active + 1; i < size; i++) {
+      for (let i = active + 1; i < w.size; i++) {
         var node = Math.min(i - active, period)
         deltas[i] -= (deltas[i] - deltas[i - 1]) * (1 - 0.01 * node)
       }
@@ -64,24 +64,24 @@ function getWave ({level = defaultLevel, colors = defaultColors, canvas}) {
     _resize () {
       w.width = canvas.width = canvas.offsetWidth + 40;
       w.height = canvas.height = canvas.offsetHeight
-      var length = w.width / (size - 1)
-      for (var i = 0; i < size; i++) {
-        w.nodes[i] = Vertex(length * i, level, level)
+      var length = w.width / (w.size - 1)
+      for (var i = 0; i < w.size; i++) {
+        w.nodes[i] = Vertex(length * i, w.height/2, w.height/2)
         w.deltas[i] = 0
       }
     },
-    _drawPath (color, x, y) {
-      let ctx = this.ctx
+    _drawPath (color, offsetX, offsetY) {
+      let ctx = w.ctx
       let nodes = w.nodes
       ctx.beginPath()
       ctx.moveTo(0, w.height)
       ctx.fillStyle = color
-      ctx.lineTo(nodes[0].x + x, nodes[ctx, 0].y + y)
+      ctx.lineTo(nodes[0].x + offsetX, nodes[0].y + offsetY)
       nodes.forEach(n =>  {
-        ctx.lineTo(n.x + x, ctx, n.y + y)
+        ctx.lineTo(n.x + offsetX, n.y + offsetY)
       })
-      ctx.lineTo(w.width, w.height)
-      ctx.lineTo(0, w.height)
+      ctx.lineTo(canvas.width, canvas.height)
+      ctx.lineTo(0, canvas.height)
       ctx.fill()
     }
   }
