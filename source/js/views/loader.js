@@ -8,22 +8,18 @@ var ctx = canvas.getContext('2d')
 
 var wave = Wave({
   canvas,
-  waterLevel: 0
+  level: 0
 })
 
 function renderLoop () {
   ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight)
   wave.draw()
 }
-console.log(canvas)
+
 var timer = setInterval(renderLoop, 30)
 
 events.on('loader:update', ({percentage = 0, message = '', type = 'info'} = {}) => {
   $text[0].textContent = message
   wave.addDrop(50)
-  wave.setWaterLevel(percentage)
+  wave.setLevel(percentage)
 })
-
-window.wave = wave
-
-console.log(wave)

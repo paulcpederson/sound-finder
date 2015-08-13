@@ -15,7 +15,7 @@ emitter.on('data', (percentage, message) => {
 
 emitter.on('done', (users) => {
   events.emit('users:updated', users)
-  //events.emit('pane', 3)
+  events.emit('pane', 3)
 })
 
 events.on('users:find', username => similarUsers(username, emitter))
