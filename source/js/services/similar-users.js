@@ -1,9 +1,6 @@
 import sc from 'sound-cloud'
 import flatten from 'array-flatten'
 
-// suppress errors in optional calls
-let suppress = x => x.catch(err => console.log(err))
-
 /**
  * Rank a set of users on how many shared favorites they have
  * @param {Array} favoriters Array of users (contains duplicates)
@@ -39,22 +36,41 @@ function rank (favoriters) {
  * @returns {Promise} Resolved with an array of similar user objects
  */
 let getFriends = (username, ee) => {
+  let loaded = 0
+
+  // emit loader events after fetching each user
+  function eachUser (favoriters) {
+    return favoriters.then(favoriters => {
+      let usersWithCity = favoriters.filter(user => user.city)
+      var randomUser = usersWithCity[Math.floor(Math.random() * usersWithCity.length)]
+
+      loaded += 1.5
+      ee.emit('data', loaded, `searching ${randomUser.city}`)
+      return favoriters
+    }).catch(err => console.log(err))
+  }
+
   sc.userID(username)
 
   .catch(() => ee.emit('error', 'Error finding username. Try again, butterfingers...'))
 
   .then(user => {
-    ee.emit('data', 10, `fetching ${username}'s favorites`)
+    loaded += 10
+    ee.emit('data', loaded, `fetching ${username}'s favorites`)
     return sc.favorites(user.id)
   })
 
   .then(favorites => {
     let allfavs = favorites.map(f => f.id).map(sc.trackFavorites)
-    ee.emit('data', 40, 'finding other users, hang tight...')
-    return Promise.all(allfavs.map(suppress))
+    return Promise.all(allfavs.map(eachUser))
   })
 
-  .then(favoriters => ee.emit('done', rank(favoriters)))
+  .then(favoriters => {
+    ee.emit('data', 100, `ranking users on similarity`)
+    return rank(favoriters)
+  })
+
+  .then(favoriters => ee.emit('done', favoriters))
 
   .catch(err => {
     console.log(err, err.stack)

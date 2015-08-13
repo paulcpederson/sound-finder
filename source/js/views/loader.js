@@ -20,6 +20,7 @@ var timer = setInterval(renderLoop, 30)
 
 events.on('loader:update', ({percentage = 0, message = '', type = 'info'} = {}) => {
   $text[0].textContent = message
-  wave.addDrop(50)
+  let randomX = Math.floor((Math.random() * 100) + 1)
+  wave.addDrop(randomX, 200)
   wave.setLevel(percentage)
 })
