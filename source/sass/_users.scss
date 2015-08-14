@@ -1,6 +1,10 @@
 @import 'colors';
 @import 'scss-utils/scss-utils';
 
+.user-wrap {
+  background-color: rgba(33, 47, 75, 1);
+}
+
 .user {
   width: 25vw;
   height: 25vw;
