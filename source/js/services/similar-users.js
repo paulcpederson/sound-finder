@@ -6,7 +6,7 @@ import flatten from 'array-flatten'
  * @param {Array} favoriters Array of users (contains duplicates)
  * @returns {Array} 30 most similar users
  */
-function rank (favoriters) {
+function rank (favoriters, username) {
   favoriters = flatten(favoriters).filter(f => f)
 
   let users = {}
@@ -23,6 +23,7 @@ function rank (favoriters) {
 
   let rankedUsers = Object.keys(users)
   .sort((a, b) => users[b].similarity - users[a].similarity)
+  .filter(id => users[id].permalink !== username)
   .slice(0, 28)
   .map(key => users[key])
 
@@ -43,7 +44,6 @@ let getFriends = (username, ee) => {
     return favoriters.then(favoriters => {
       let usersWithCity = favoriters.filter(user => user.city)
       var randomUser = usersWithCity[Math.floor(Math.random() * usersWithCity.length)]
-
       loaded += 1.5
       ee.emit('data', loaded, `searching ${randomUser.city}`)
       return favoriters
@@ -67,7 +67,7 @@ let getFriends = (username, ee) => {
 
   .then(favoriters => {
     ee.emit('data', 100, `ranking users on similarity`)
-    return rank(favoriters)
+    return rank(favoriters, username)
   })
 
   .then(favoriters => ee.emit('done', favoriters))
