@@ -5,23 +5,24 @@ import assign from 'object-assign'
 
 const defaultLevel = 50
 const defaultColors = ['rgba(0, 139, 188, .8)', 'rgba(33, 47, 75, .8)']
+const defaultViscosity = .85
 
 /**
 * Create an individual node on the wave
 */
-function Vertex (x, y, baseY) {
+function Vertex (x, y, baseY, viscosity) {
   return {
-    baseY,
     x,
     y,
+    baseY,
+    viscosity,
     vy: 0,
     targetY: 0,
-    friction: 0.15,
     deceleration: 0.95,
     updateY (diffVal) {
       this.targetY = diffVal + this.baseY
       this.vy += this.targetY - this.y
-      this.y += this.vy * this.friction
+      this.y += this.vy * this.viscosity
       this.vy *= this.deceleration
     }
   }
@@ -35,20 +36,21 @@ function getHeight (percent, height) {
 }
 
 /**
-* Wave factory function - accepts single options object
-* @param {Integer} level  Starting water level of wave (0 - 100)
-* @param {Array}   colors Array of two color stings
-* @param {Object}  canvas Canvas element to draw the wave on
+* Wave factory function - accepts single options object (params below)
+* @param {Integer} level     Starting water level of wave (0 - 100)
+* @param {Array}   colors    Array of two color stings
+* @param {Integer} viscosity Viscosity of wave, higher moves slower (0 - 1)
+* @param {Object}  canvas    Canvas element to draw the wave on
 * @return Object
 */
-function getWave ({level = defaultLevel, colors = defaultColors, canvas}) {
+function getWave ({level = defaultLevel, colors = defaultColors, viscosity = defaultViscosity, canvas}) {
   let height = canvas.offsetHeight
   let width = canvas.offsetWidth + 40
-
+  viscosity = 1 - viscosity
   let w = {
     size: 300,
     active: 150,
-    amplitude: 1000,
+    amplitude: 0,
     nodes: [],
     deltas: [],
     ctx: canvas.getContext('2d'),
@@ -56,7 +58,7 @@ function getWave ({level = defaultLevel, colors = defaultColors, canvas}) {
     /**
     * Create a ripple effect on surface
     * @param {Integer} x         position of drop (0 - 100)
-    * @param {Integer} amplitude Severity of surface distortion (pixels)
+    * @param {Integer} amplitude Severity of surface distortion
     */
     addDrop (x = 50, amplitude = 1250) {
       w.amplitude = amplitude
@@ -102,7 +104,7 @@ function getWave ({level = defaultLevel, colors = defaultColors, canvas}) {
       height = canvas.height = canvas.offsetHeight
       var length = width / (w.size - 1)
       for (var i = 0; i < w.size; i++) {
-        w.nodes[i] = Vertex(length * i, w.level, w.level)
+        w.nodes[i] = Vertex(length * i, w.level, w.level, viscosity)
         w.deltas[i] = 0
       }
     },
