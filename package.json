@@ -19,7 +19,6 @@
     "sound-cloud": "./source/js/lib/sound-cloud.js"
   },
   "watches": {
-    "sass": "source/sass/**",
     "img": "source/img/**",
     "html": "source/index.html"
   },
@@ -27,10 +26,11 @@
     "js": "simplifyify source/js/index.js -d -m -o build/",
     "js:watch": "npm run js -- -w",
     "sass": "node-sass source/sass/ -o build/ --include-path node_modules/ -q",
+    "sass:watch": "npm run sass -- -w",
     "img": "imagemin-newer source/img/ build",
     "html": "cp source/*.* build/",
-    "predev": "mkdir -p build && npm-run-all sass img html",
-    "dev": "parallelshell 'rerun-script' 'npm run js:watch' 'cd build && live-server'",
+    "predev": "mkdir -p build && npm-run-all img html",
+    "dev": "parallelshell 'rerun-script' 'npm run js:watch' 'npm run sass:watch' 'cd build && live-server'",
     "deploy": "npm run predev && npm run js && surge -p build/"
   },
   "author": "Paul C Pederson <paul.c.pederson@gmail.com> (http://paulcpederson.com/)",
