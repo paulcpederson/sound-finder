@@ -1,5 +1,5 @@
 {{~it.users :user}}
-  <a class="user js-play-likes" href="#" data-id="{{=user.id}}" data-avatar="">
+  <a class="user fade-in js-play-likes" href="#" data-id="{{=user.id}}" data-avatar="">
     <h4 class="user-text">
         {{=user.full_name || user.username}}
     </h4>
