@@ -23,3 +23,8 @@ events.on('player:new', (id) => {
   playlist(id).then(getPlayer)
   .catch(err => console.log(err))
 })
+
+// $('.info-toggle').on('click', _ => {
+//   events.emit('info:toggle')
+// })
+
