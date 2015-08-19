@@ -8,7 +8,7 @@ import mess from 'mess'
  */
 let playlist = (id) => {
   return new Promise((resolve, reject) => {
-    sc.favorites(id).then(favs => {
+    sc.favorites(id, 200).then(favs => {
       favs = favs.filter(fav => fav.streamable)
       resolve(mess(favs))
     }).catch(err => reject(err))
