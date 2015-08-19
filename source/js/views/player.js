@@ -49,7 +49,9 @@ events.on('player:pause', () => {
 })
 
 events.on('player:next', () => {
-  player.current++
+  if (++player.current > player.tracks.length - 1) {
+    player.current = 0
+  }
   load()
 })
 
@@ -58,6 +60,10 @@ events.on('player:prev', () => {
     player.current = player.tracks.length - 1
   }
   load()
+})
+
+player.addEventListener('ended', () => {
+  events.emit('player:next')
 })
 
 // myaudio.play(); - This will play the music.
