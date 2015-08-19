@@ -18,7 +18,7 @@ let client = clientId => {
     /* Get user id from username */
     userID: username => sc.request('resolve', { url: `http://soundcloud.com/${username}` }),
     /* Get favorite tracks from user id */
-    favorites: userID => sc.request(`users/${userID}/favorites`),
+    favorites: (userID, limit = 100) => sc.request(`users/${userID}/favorites`, {limit}),
     /* Get users who favorited a track by track id */
     trackFavorites: trackID => sc.request(`tracks/${trackID}/favoriters`)
   }
