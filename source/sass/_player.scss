@@ -1,0 +1,30 @@
+.player {
+  background-color: $darker-blue;
+}
+
+.player-control {
+  display: inline-block;
+  border: 0;
+  width: 24px;
+  height: 24px;
+  padding: 12px;
+  box-sizing: border-box;
+  margin: 1.5rem 2rem 0 0;
+  cursor: pointer;
+  background: url('prev.svg') no-repeat center center transparent;
+  opacity: .7;
+  @include transition(opacity 150ms linear);
+  &:hover {
+    opacity: 1;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.player-prev {
+  background-image: url('prev.svg');
+}
+.player-play { background-image: url('play.svg')}
+.player-pause { background-image: url('pause.svg')}
+.player-next { background-image: url('next.svg')}

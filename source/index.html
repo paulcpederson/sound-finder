@@ -40,9 +40,10 @@
     </header>
 
     <!-- Search Input -->
-    <section class="search-wrap fullscreen move-in move-out-right" data-pane="1">
+    <section class="search-wrap fullscreen move-in" data-pane="1">
       <div class="container">
-        <form class="username-form">
+        <form class="username-form big-text">
+          <label for="username" class="small">enter a soundcloud username:</label>
           <input type="text" class="username-search big-text" id="username" placeholder="soundcloud username..." autocomplete="off" autofocus>
           <input type="submit" hidden>
         </form>
@@ -62,10 +63,19 @@
     </section>
 
     <!-- Player -->
-    <section class="player fullscreen move-in" data-pane="4">
-      <audio id="player" autoplay preload autobuffer crossOrigin="anonymous"></audio>
-      <div class="container">
-        <div id="player-controls" class="controls"></div>
+    <section class="player fullscreen move-in move-out-right" data-pane="4">
+      <audio class="js-player" autoplay preload autobuffer crossOrigin="anonymous"></audio>
+      <div class="container hide js-player-wrap">
+        <h2 class="big-text">
+          <a class="block js-player-artist small"></a>
+          <a class="js-player-title"></a>
+        </h2>
+        <nav class="player-controlls">
+          <button class="player-control player-prev js-prev"></button>
+          <button class="player-control player-play js-play hide"></button>
+          <button class="player-control player-pause js-pause"></button>
+          <button class="player-control player-next js-next"></button>
+        </nav>
       </div>
     </section>
 

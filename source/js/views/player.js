@@ -1,19 +1,64 @@
-//import view from '../../templates/player.dot'
+import playlist from '../services/playlist'
+import Player from '../lib/player'
 import events from 'pub-sub'
 import $ from '$'
 
-// load the player template
-// render artist info, album, links, maybe visualizer?
+let player = Player(document.querySelector('.js-player'))
+let artist = document.querySelector('.js-player-artist')
+let title = document.querySelector('.js-player-title')
+let wrap = $('.js-player-wrap')
+let next = $('.js-next')
+let prev = $('.js-prev')
+let play = $('.js-play')
+let pause = $('.js-pause')
 
-// let users = $('#users')[0]
-// let $wrap = $('.user-wrap')
-// let dd = new diffDOM()
+function renderInfo () {
+  wrap.addClass('fade-in').removeClass('hide')
+  let current = player.tracks[player.current]
+  artist.innerHTML = current.user.username
+  artist.href = current.user.permalink_url
+  title.innerHTML = current.title
+  title.href = current.permalink_url
+}
 
-// events.on('users:updated', (data) => {
-//   let tmp = users.cloneNode(false)
-//   tmp.innerHTML = view({users: data})
-//   dd.apply(users, dd.diff(users, tmp))
-// })
+function load () {
+  player.loadTrack()
+  renderInfo()
+}
+
+events.on('player:new', (id) => {
+  playlist(id).then(function (tracks) {
+    player.tracks = tracks
+    player.loadTrack()
+    renderInfo()
+    console.log(player.tracks)
+  })
+  .catch(err => console.log(err))
+})
+
+events.on('player:play', () => {
+  play.removeClass('hide')
+  pause.addClass('hide')
+  player.pause()
+})
+
+events.on('player:pause', () => {
+  play.addClass('hide')
+  pause.removeClass('hide')
+  player.play()
+})
+
+events.on('player:next', () => {
+  player.current++
+  load()
+})
+
+events.on('player:prev', () => {
+  if (--player.current < 0) {
+    player.current = player.tracks.length - 1
+  }
+  load()
+})
 
 // myaudio.play(); - This will play the music.
 // myaudio.pause(); - This will stop the music.
