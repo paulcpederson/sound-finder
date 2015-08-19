@@ -18,15 +18,22 @@ function renderLoop () {
   wave.draw()
 }
 
-events.on('users:find', _ => {
+function randomDrop () {
   let randomX = Math.floor((Math.random() * 100) + 1)
   wave.addDrop(randomX, 2000)
+}
+
+events.on('users:find', _ => {
+  randomDrop()
   timer = setInterval(renderLoop, 30)
 })
 
 events.on('loader:update', ({percentage = 0, message = '', type = 'info'} = {}) => {
   $text[0].innerHTML = message
   wave.setLevel(percentage)
+  if (percentage % 25 === 0) {
+    randomDrop()
+  }
 })
 
 events.on('users:updated', _ => {
