@@ -7,7 +7,7 @@ $font-reset: $light;
 
 @import 'transitions';
 @import 'users';
-
+@import 'player';
 
 body {
   margin: 0;
@@ -58,6 +58,14 @@ body {
   display: inline-block;
 }
 
+.hide {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
 .leader-1 { margin-top: 10vh; }
 .leader-2 { margin-top: 20vh; }
 .leader-3 { margin-top: 30vh; }
@@ -80,13 +88,14 @@ body {
 }
 
 .big-text {
-  margin-top: 40vh;
+  margin: 40vh 0 0 0;
   color: white;
-  font-size: 7vw;
+  font-size: 6.75vw;
   background: transparent;
   z-index: 2;
-  opacity: .9;
-  small {
+  @include bold();
+  small, .small {
+    opacity: .8;
     font-size: 2vw;
     margin: 0;
   }
@@ -97,9 +106,8 @@ body {
   display: block;
   @include box-sizing(border-box);
   width: 100%;
-  padding: .75rem 0;
+  margin-top: 0;
   outline: none;
-  @include bold();
   border: none;
   @include placeholder() {
     color: white;

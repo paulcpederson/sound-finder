@@ -19,7 +19,7 @@
 
 // stagger fade in for the similar users
 @for $n from 1 through 28 {
-  $delay: ($n * .1) + .5;
+  $delay: ($n * .1) + .75;
   .user:nth-child(#{$n}) { @include animation-delay($delay * 1s); }
 }
 
