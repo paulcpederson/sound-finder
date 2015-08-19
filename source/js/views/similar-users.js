@@ -12,6 +12,5 @@ events.on('users:updated', (data) => {
     }
     return user
   })
-  console.log(users)
   $users.innerHTML = view({users})
 })
