@@ -1,0 +1,17 @@
+.loader-canvas {
+  margin-left:-5vw;
+  width: 110vw;
+  height: 100vh;
+  position: fixed;
+}
+
+.loading-message {
+  pointer-events: none;
+}
+
+.navigation {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: 3;
+}

@@ -1,25 +1,21 @@
-$fallbacks: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$light: 'HelveticaNeue-Light', 'Helvetica Neue Light', $fallbacks;
-$normal: 'HelveticaNeue', 'Helvetica Neue', $fallbacks;
-$bold: 'HelveticaNeue-Bold', 'Helvetica Neue Bold', $fallbacks;
-
-@mixin bold() {
-  font-weight: 600;
-  font-family: $bold;
-}
-
-@mixin light() {
-  font-weight: 200;
-  font-family: $light;
-}
-
 body, html {
   margin: 0;
+  font-family: 'Proxima Nova Soft';
+  color: $white;
+  background: $gray;
+  overflow-x: hidden;
+  letter-spacing: .1em;
+  font-size: 18px;
 }
 
 h1, h2, h3, h4, h5, p {
   margin: 0 0 .5em 0;
+  font-weight: 400;
 }
+
+h1 {font-size: 3rem;}
+h2 {font-size: 2.5rem;}
+h3 {font-size: 2rem;}
 
 a {
   text-decoration: none;

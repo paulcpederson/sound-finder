@@ -1,0 +1,41 @@
+
+// .container {
+//   width: 100%;
+//   @include box-sizing(border-box);
+//   margin: 0;
+//   padding-left: 3vw;
+//   padding-right: 3vw;
+//   position: relative;
+//   z-index: 2;
+// }
+
+// Text helpers
+.text-center { text-align: center; }
+.text-large { font-size: 1.5em; }
+.text-yellow { color: $yellow; }
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  @include transition(visibility 0ms linear 200ms, opacity 300ms linear);
+  &.show {
+    visibility: visible;
+    opacity: 1;
+    @include transition-delay(0ms);
+  }
+}
+
+.right { float: right; }
+.hide { display: none; }
+.block { display: block; }
+.ilb { display: inline-block; }
+
+.leader-1 { margin-top: 10vh; }
+.leader-2 { margin-top: 20vh; }
+.leader-3 { margin-top: 30vh; }
+
+.fullscreen {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+}

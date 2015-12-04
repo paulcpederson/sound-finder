@@ -6,16 +6,16 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>Sound Finder</title>
-    <meta name="description" content="Who likes the music that you like? You might be surprised...">
+    <meta name="description" content="Find SoundCloud users just like you">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Sound Finder">
     <meta name="twitter:site" content="@paulcpederson">
-    <meta name="twitter:description" content="Who likes the music that you like? You might be surprised...">
+    <meta name="twitter:description" content="Find SoundCloud users just like you">
     <meta name="twitter:image" content="desk.jpg">
     <meta property="og:url" content="http://soundfinder.io">
     <meta property="og:title" content="SoundFinder">
     <meta property="og:image" content="desk.jpg">
-    <meta property="og:description" content="Who likes the music that you like? You might be surprised...">
+    <meta property="og:description" content="Find SoundCloud users just like you">
     <link rel="shortcut icon" href="favicon.ico">
     <link type="text/css" rel="stylesheet" href="style.css">
   </head>
@@ -23,7 +23,7 @@
   <body>
 
     <!-- Info Modal -->
-    <section class="info">
+    <section class="info hide">
       <div class="container">
         <h2 class="leader-30 ilb">What is soundfinder?</h2><a href="#" class="info-toggle right">OK Thanks.</a>
         <p>Sound finder allows you to find your kindred musical spirits. Search for SoundCloud users that have the same taste as you.</p>
@@ -32,19 +32,23 @@
     </section>
 
     <!-- Top Nav -->
-    <header class="navigation">
+    <header class="navigation hidden">
       <div class="container">
-        <h1 class="title ilb">Soundfinder</h1>
+        <a class="title ilb">Soundfinder</a> / similar / <a href="/similar/username">username</a>
         <a href="#" class="ilb title right info-toggle" id="wtf">wtf</a>
       </div>
     </header>
 
-    <!-- Search Input -->
-    <section class="search-wrap fullscreen move-in" data-pane="1">
+    <!-- Title Screen and Search -->
+    <section class="text-center fullscreen move-in" data-pane="1">
       <div class="container">
-        <form class="username-form big-text">
-          <label for="username" class="small">enter a soundcloud username:</label>
-          <input type="text" class="username-search big-text" id="username" placeholder="soundcloud username..." autocomplete="off" autofocus>
+        <h1 class="leader-2">sound finder</h1>
+        <p class="text-large">Find soundcloud users just like <span class="text-yellow">you.</span></p>
+        <form class="username-form leader-1">
+          <label for="username">
+            enter a soundcloud username:
+            <input type="text" class="username-search block" id="username" placeholder="soundcloud username..." autocomplete="off" autofocus>
+          </label>
           <input type="submit" hidden>
         </form>
       </div>
