@@ -30,9 +30,16 @@
 .block { display: block; }
 .ilb { display: inline-block; }
 
-.leader-1 { margin-top: 10vh; }
-.leader-2 { margin-top: 20vh; }
-.leader-3 { margin-top: 30vh; }
+.leader-half { margin-top: 5vh; }
+.leader-1    { margin-top: 10vh; }
+.leader-2    { margin-top: 20vh; }
+.leader-3    { margin-top: 30vh; }
+
+.constrain {
+  max-width: 60rem;
+  margin-right: auto;
+  margin-left: auto;
+}
 
 .fullscreen {
   width: 100%;

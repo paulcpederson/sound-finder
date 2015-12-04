@@ -1,0 +1,27 @@
+.username-form {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 30rem;
+}
+
+.username-search {
+  width: 100%;
+  box-sizing: border-box;
+  padding: .5rem .5rem .5rem 3rem;
+  @include box-sizing(border-box);
+  margin-top: 1rem;
+  color: $teal;
+  font-family: $font-stack;
+  letter-spacing: .05em;
+  font-weight: 300;
+  border-radius: 2rem;
+  background: url('search.svg') left center no-repeat white;
+  outline: none;
+  border: none;
+  position: relative;
+  display: block;
+  @include placeholder() {
+    color: $shadow;
+    opacity: .4;
+  }
+}

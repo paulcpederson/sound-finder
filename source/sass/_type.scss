@@ -1,6 +1,8 @@
+$font-stack: 'Proxima Nova Soft';
+
 body, html {
   margin: 0;
-  font-family: 'Proxima Nova Soft';
+  font-family: $font-stack;
   color: $white;
   background: $gray;
   overflow-x: hidden;
