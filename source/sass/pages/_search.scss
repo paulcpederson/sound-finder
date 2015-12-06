@@ -2,6 +2,8 @@
   margin-right: auto;
   margin-left: auto;
   max-width: 30rem;
+  position: relative;
+  z-index: 1;
 }
 
 .username-search {
@@ -15,7 +17,7 @@
   letter-spacing: .05em;
   font-weight: 300;
   border-radius: 2rem;
-  background: url('search.svg') left center no-repeat white;
+  background: url('search.svg') 20px center no-repeat white;
   outline: none;
   border: none;
   position: relative;
@@ -24,4 +26,103 @@
     color: $shadow;
     opacity: .4;
   }
+}
+
+// Shapes
+.shapes {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.shape {
+  display: block;
+  position: absolute;
+  background: url('triangle-green.svg') center no-repeat transparent;
+}
+.circle {
+  width: 105px;
+  height: 105px;
+}
+
+.squiggle {
+  width: 130px;
+  height: 40px;
+}
+
+.triangle {
+  width: 94px;
+  height: 94px;
+}
+
+.square {
+  width: 94px;
+  height: 94px;
+}
+
+.triangle-green {
+  background-image: url('triangle-green.svg');
+}
+
+.triangle-yellow {
+  background-image: url('triangle-yellow.svg');
+}
+
+.triangle-red {
+  background-image: url('triangle-red.svg');
+}
+
+.triangle-blue {
+  background-image: url('triangle-blue.svg');
+}
+
+.circle-green {
+  background-image: url('circle-green.svg');
+}
+
+.circle-yellow {
+  background-image: url('circle-yellow.svg');
+}
+
+.circle-red {
+  background-image: url('circle-red.svg');
+}
+
+.circle-blue {
+  background-image: url('circle-blue.svg');
+}
+
+.squiggle-green {
+  background-image: url('squiggle-green.svg');
+}
+
+.squiggle-yellow {
+  background-image: url('squiggle-yellow.svg');
+}
+
+.squiggle-red {
+  background-image: url('squiggle-red.svg');
+}
+
+.squiggle-blue {
+  background-image: url('squiggle-blue.svg');
+}
+
+.square-green {
+  background-image: url('square-green.svg');
+}
+
+.square-yellow {
+  background-image: url('square-yellow.svg');
+}
+
+.square-red {
+  background-image: url('square-red.svg');
+}
+
+.square-blue {
+  background-image: url('square-blue.svg');
 }
