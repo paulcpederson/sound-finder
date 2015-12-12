@@ -23,8 +23,9 @@
     "html": "source/index.html"
   },
   "scripts": {
-    "js": "simplifyify source/js/index.js -d -m -o build/",
+    "js": "simplifyify source/js/index.js -d -o build/",
     "js:watch": "npm run js -- -w",
+    "js:production": "npm run js -- -m",
     "sass": "node-sass source/sass/ -o build/ --include-path node_modules/ -q",
     "sass:watch": "npm run sass -- -w",
     "img": "imagemin-newer source/img/ build",
