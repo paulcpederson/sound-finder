@@ -11,8 +11,11 @@
 
 // Text helpers
 .text-center { text-align: center; }
-.text-large { font-size: 1.5em; }
+.text-large  { font-size: 1.5em; }
 .text-yellow { color: $yellow; }
+.text-green  { color: $teal; }
+.text-blue   { color: $blue; }
+.text-red    { color: $red; }
 
 .hidden {
   visibility: hidden;
