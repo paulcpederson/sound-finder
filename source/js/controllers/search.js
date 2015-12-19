@@ -2,10 +2,10 @@ import events from 'pub-sub'
 import $ from '$'
 
 let searchTerm = ''
-let input = document.querySelector('.js-search-input')
+let searchInput = document.querySelector('.js-search-input')
 
 function changeInputColor (newColor) {
-  $(input).removeClass('text-green')
+  $(searchInput).removeClass('text-green')
   .removeClass('text-yellow')
   .removeClass('text-red')
   .removeClass('text-blue')
@@ -15,7 +15,7 @@ function changeInputColor (newColor) {
 // trigger search on submit
 $('.js-search-form').on('submit', (e) => {
   e.preventDefault()
-  events.emit('users:find', $input.value)
+  events.emit('users:find', searchInput.value)
   events.emit('pane', 2)
 })
 
@@ -24,18 +24,18 @@ $('.back').on('click', () => {
   events.emit('pane', 1)
 })
 
-$(input).on('keyup', (e) => {
+$(searchInput).on('keyup', (e) => {
   searchTerm = input.value
 })
 
 $('.js-shape').on('mouseover', (e) => {
-  input.value = e.target.dataset.username
+  searchInput.value = e.target.dataset.username
   changeInputColor(`${e.target.dataset.color}`)
 })
 
 $('.js-shape').on('mouseout', (e) => {
   changeInputColor('green')
-  input.value = searchTerm
+  searchInput.value = searchTerm
 })
 
 $('.js-shape').on('click', (e) => {
