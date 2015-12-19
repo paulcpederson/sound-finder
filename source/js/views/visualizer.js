@@ -36,7 +36,9 @@ events.on('player:play', () => {
 })
 
 player.ontimeupdate = function () {
- wave.setLevel(player.currentTime / player.duration * 100)
+  // have to check duration for NaN
+  let duration = player.duration !== player.duration ? 300 : player.duration
+  wave.setLevel(player.currentTime / duration * 100)
 }
 // myaudio.play(); - This will play the music.
 // myaudio.pause(); - This will stop the music.
