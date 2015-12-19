@@ -17,6 +17,19 @@
 .text-blue   { color: $blue; }
 .text-red    { color: $red; }
 
+.big-text {
+  margin: 40vh 0 0 0;
+  color: white;
+  font-size: 6vw;
+  background: transparent;
+  z-index: 2;
+  small, .small {
+    opacity: .8;
+    font-size: 2vw;
+    margin: 0;
+  }
+}
+
 .hidden {
   visibility: hidden;
   opacity: 0;
@@ -38,10 +51,14 @@
 .leader-2    { margin-top: 20vh; }
 .leader-3    { margin-top: 30vh; }
 
-.constrain {
-  max-width: 60rem;
-  margin-right: auto;
-  margin-left: auto;
+.container {
+  width: 100%;
+  @include box-sizing(border-box);
+  margin: 0;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  position: relative;
+  z-index: 2;
 }
 
 .fullscreen {

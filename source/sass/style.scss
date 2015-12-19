@@ -2,14 +2,16 @@
 @import 'scss-utils/scss-utils';
 @import 'inline-block-grid/grid';
 
-// Modules
+// Reset
 @import 'colors';
 @import 'type';
-@import 'transitions';
-@import 'utilities';
 
 // Page-specific styles
 @import 'pages/loader';
 @import 'pages/player';
 @import 'pages/search';
 @import 'pages/users';
+
+// Utility classes
+@import 'transitions';
+@import 'utilities';
