@@ -25,7 +25,7 @@ $('.back').on('click', () => {
 })
 
 $(searchInput).on('keyup', (e) => {
-  searchTerm = input.value
+  searchTerm = searchInput.value
 })
 
 $('.js-shape').on('mouseover', (e) => {
