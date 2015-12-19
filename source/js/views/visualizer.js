@@ -19,7 +19,6 @@ function renderLoop () {
 }
 
 events.on('player:new', (id) => {
-  // start rendering wave
   timer = setInterval(renderLoop, 30)
 })
 
@@ -32,7 +31,11 @@ events.on('player:prev', () => {
 })
 
 events.on('player:play', () => {
+  // start up frequency channels render loop
+})
 
+events.on('player:play', () => {
+  // stop frequency channels render loop
 })
 
 player.ontimeupdate = function () {
@@ -40,13 +43,3 @@ player.ontimeupdate = function () {
   let duration = player.duration !== player.duration ? 300 : player.duration
   wave.setLevel(player.currentTime / duration * 100)
 }
-// myaudio.play(); - This will play the music.
-// myaudio.pause(); - This will stop the music.
-// myaudio.duration; - Returns the length of the music track.
-// myaudio.currentTime = 0; - This will rewind the audio to the beginning.
-// myaudio.loop = true; - This will make the audio track loop.
-// myaudio.muted = true; - This will mute the track
-
-  // wave.setLevel(0)
-  // clearInterval(timer)
-
