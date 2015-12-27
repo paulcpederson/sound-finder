@@ -32,7 +32,8 @@
     "html": "cp source/*.* build/",
     "predev": "mkdir -p build && npm-run-all img html",
     "dev": "parallelshell 'rerun-script' 'npm run js:watch' 'npm run sass:watch' 'cd build && live-server'",
-    "deploy": "npm run predev && npm run js && surge -p build/"
+    "deploy": "npm run predev && npm run js && surge -p build/",
+    "test": "standard source/js/**/*.js"
   },
   "author": "Paul C Pederson <paul.c.pederson@gmail.com> (http://paulcpederson.com/)",
   "license": "ISC",
@@ -58,7 +59,7 @@
     "rerun-script": "^0.6.0",
     "scss-utils": "*",
     "simplifyify": "^1.4.1",
-    "standard": "3.0.0",
+    "standard": "^5.4.1",
     "surge": "^0.14.3"
   }
 }
