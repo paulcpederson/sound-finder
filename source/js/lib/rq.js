@@ -20,7 +20,7 @@ let rq = {
    */
   get: (url, form) => {
     return new Promise((resolve, reject) => {
-      var xhr = new XMLHttpRequest()
+      var xhr = new window.XMLHttpRequest()
       form = rq.encodeForm(form)
       xhr.open('get', `${url}?${form}`, true)
       xhr.responseType = 'json'

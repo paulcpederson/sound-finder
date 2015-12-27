@@ -1,7 +1,6 @@
 import similarUsers from '../services/similar-users.js'
 import Emitter from 'tiny-emitter'
 import events from 'pub-sub'
-import $ from '$'
 
 let emitter = new Emitter()
 

@@ -9,7 +9,7 @@ let timer = false
 
 var wave = Wave({
   canvas,
-  viscosity: .95,
+  viscosity: 0.95,
   level: 0
 })
 

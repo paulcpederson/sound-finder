@@ -6,8 +6,6 @@ import $ from '$'
 let artist = document.querySelector('.js-player-artist')
 let title = document.querySelector('.js-player-title')
 let wrap = $('.js-player-wrap')
-let next = $('.js-next')
-let prev = $('.js-prev')
 let play = $('.js-play')
 let pause = $('.js-pause')
 

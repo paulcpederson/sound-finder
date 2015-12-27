@@ -1,11 +1,9 @@
 /**
 * Create a wave on a 2d canvas
 */
-import assign from 'object-assign'
-
 const defaultLevel = 50
 const defaultColors = ['rgba(0, 139, 188, .8)', 'rgba(33, 47, 75, .8)']
-const defaultViscosity = .85
+const defaultViscosity = 0.85
 
 /**
 * Create an individual node on the wave
@@ -85,14 +83,14 @@ function getWave ({level = defaultLevel, colors = defaultColors, viscosity = def
       let active = w.active
       w.amplitude = w.amplitude * 0.1
       deltas[active] = w.amplitude
-      //nodes to the left of the active node
+      // nodes to the left of the active node
       for (let i = active - 1; i > 0; i--) {
-        var node = Math.min(active - i, period)
+        let node = Math.min(active - i, period)
         deltas[i] -= (deltas[i] - deltas[i + 1]) * (1 - 0.01 * node)
       }
       // nodes to the right of the active node
       for (let i = active + 1; i < w.size; i++) {
-        var node = Math.min(i - active, period)
+        let node = Math.min(i - active, period)
         deltas[i] -= (deltas[i] - deltas[i - 1]) * (1 - 0.01 * node)
       }
       w.nodes.forEach((node, i) => node.updateY(deltas[i]))
@@ -100,7 +98,7 @@ function getWave ({level = defaultLevel, colors = defaultColors, viscosity = def
       w._drawPath(colors[1], 15, 5)
     },
     _resize () {
-      width = canvas.width = canvas.offsetWidth + 40;
+      width = canvas.width = canvas.offsetWidth + 40
       height = canvas.height = canvas.offsetHeight
       var length = width / (w.size - 1)
       for (var i = 0; i < w.size; i++) {

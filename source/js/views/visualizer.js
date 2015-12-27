@@ -1,20 +1,15 @@
 import events from 'pub-sub'
 import player from '../lib/player'
 import Wave from '../lib/wave'
-import $ from '$'
+import colors from '../lib/colors'
 
 var canvas = document.querySelector('.js-loader-canvas')
 var ctx = canvas.getContext('2d')
 let timer = false
 
-let yellow = 'RGBA(255, 230, 83, 1)'
-let red = 'RGBA(249, 139, 151, 1)'
-let green = 'RGBA(28, 194, 199, 1)'
-let blue = 'RGBA(0, 122, 224, 1)'
-
 var wave = Wave({
   canvas,
-  viscosity: .95,
+  viscosity: 0.95,
   level: 0
 })
 
