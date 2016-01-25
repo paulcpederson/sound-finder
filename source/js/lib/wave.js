@@ -55,10 +55,11 @@ function getWave ({level = defaultLevel, colors = defaultColors, viscosity = def
     level: getHeight(level, height),
     /**
     * Create a ripple effect on surface
-    * @param {Integer} x         position of drop (0 - 100)
     * @param {Integer} amplitude Severity of surface distortion
+    * @param {Integer} x         position of drop (0 - 100) random by default
     */
-    addDrop (x = 50, amplitude = 1250) {
+    addDrop (amplitude = 1250, x) {
+      x = x || Math.floor((Math.random() * 100) + 1)
       w.amplitude = amplitude
       w.active = Math.floor(w.size / 100 * x)
     },
