@@ -73,8 +73,14 @@
     </section>
 
     <!-- Similar Users Container -->
-    <section class="user-wrap fullscreen move-in move-out-right" data-pane="3">
-      <div id="users" class="leader-1"></div>
+    <section class="js-user-wrap user-wrap fullscreen move-in move-out-right" data-pane="3">
+      <div class="hide">
+        <a class="user fade-in js-play-likes js-similar-user-template" href="#" data-id="{{id}}">
+          <h4 class="user-text">{{full_name}}</h4>
+          <p class="user-text">{{city}}</p>
+          <span class="user-avatar" style="background-image: url({{avatar_url}})"></span>
+        </a>
+      </div>
     </section>
 
     <!-- Player -->
@@ -98,7 +104,7 @@
     <canvas class="js-loader-canvas loader-canvas"></canvas>
 
     <!-- Application JS -->
-    <script src="index.js"></script>
+    <script src="app.js"></script>
 
   </body>
 
