@@ -24,14 +24,12 @@
   },
   "scripts": {
     "js": "simplifyify source/js/index.js -d -o build/",
-    "js:watch": "npm run js -- -w",
     "js:production": "npm run js -- -m",
     "sass": "node-sass source/sass/ -o build/ --include-path node_modules/ -q",
-    "sass:watch": "npm run sass -- -w",
     "img": "imagemin-newer source/img/ build",
     "html": "cp source/*.* build/",
-    "predev": "mkdir -p build && npm-run-all img html",
-    "dev": "parallelshell 'rerun-script' 'npm run js:watch' 'npm run sass:watch' 'cd build && live-server'",
+    "predev": "mkdir -p build && npm-run-all img html sass",
+    "dev": "parallelshell 'rerun-script' 'npm run js -- -w' 'npm run sass -- -w' 'live-server --entry-file=200.html build'",
     "deploy": "npm run predev && npm run js && surge -p build/",
     "test": "standard source/js/**/*.js"
   },
@@ -40,26 +38,24 @@
   "dependencies": {
     "array-flatten": "^1.0.2",
     "array.from": "^0.2.0",
-    "diff-dom": "^1.0.0",
     "dom-matches": "^1.0.1",
     "mess": "^0.1.2",
     "object-assign": "^3.0.0",
-    "observable": "^2.1.3",
     "tiny-emitter": "^1.0.0"
   },
   "devDependencies": {
-    "babelify": "^5.0.4",
+    "babelify": "5.0.4",
     "dotify": "^1.1.0",
     "imagemin-newer": "^1.0.1",
-    "inline-block-grid": "paulcpederson/inline-block-grid",
-    "live-server": "^0.6.3",
-    "node-sass": "^3.2.0",
-    "npm-run-all": "^1.0.2",
-    "parallelshell": "^1.0.4",
+    "inline-block-grid": "^0.1.0",
+    "live-server": "^0.9.1",
+    "node-sass": "^3.4.2",
+    "npm-run-all": "^1.5.0",
+    "parallelshell": "^2.0.0",
     "rerun-script": "^0.6.0",
     "scss-utils": "*",
-    "simplifyify": "^1.4.1",
-    "standard": "^5.4.1",
+    "simplifyify": "^2.0.1",
+    "standard": "*",
     "surge": "^0.14.3"
   }
 }
