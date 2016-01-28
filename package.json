@@ -9,7 +9,6 @@
   },
   "browserify": {
     "transform": [
-      "dotify",
       "babelify"
     ]
   },
@@ -20,10 +19,10 @@
   },
   "watches": {
     "img": "source/img/**",
-    "html": "source/index.html"
+    "html": "source/*.*"
   },
   "scripts": {
-    "js": "simplifyify source/js/index.js -d -o build/",
+    "js": "simplifyify source/js/app.js -d -o build/",
     "js:production": "npm run js -- -m",
     "sass": "node-sass source/sass/ -o build/ --include-path node_modules/ -q",
     "img": "imagemin-newer source/img/ build",
@@ -45,7 +44,6 @@
   },
   "devDependencies": {
     "babelify": "5.0.4",
-    "dotify": "^1.1.0",
     "imagemin-newer": "^1.0.1",
     "inline-block-grid": "^0.1.0",
     "live-server": "^0.9.1",
@@ -53,7 +51,7 @@
     "npm-run-all": "^1.5.0",
     "parallelshell": "^2.0.0",
     "rerun-script": "^0.6.0",
-    "scss-utils": "*",
+    "scss-utils": "1.0.0",
     "simplifyify": "^2.0.1",
     "standard": "*",
     "surge": "^0.14.3"
