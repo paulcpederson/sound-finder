@@ -10,7 +10,7 @@
   width: 100%;
   box-sizing: border-box;
   padding: .5rem .5rem .5rem 3rem;
-  @include box-sizing(border-box);
+  box-sizing: border-box;
   margin-top: 1rem;
   font-family: $font-stack;
   letter-spacing: .05em;
