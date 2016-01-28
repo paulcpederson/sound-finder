@@ -3,7 +3,7 @@ import $ from '$'
 import matches from 'dom-matches'
 
 // Users get added dynamically, so attach events to the users div
-$('#users').on('click', (e) => {
+$('.js-user-wrap').on('click', (e) => {
   if (matches(e.target, '.js-play-likes')) {
     e.preventDefault()
     let id = e.target.getAttribute('data-id')
