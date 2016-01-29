@@ -40,28 +40,28 @@
     </header>
 
     <!-- Title Screen and Search -->
-    <section class="text-center fullscreen move-in" data-pane="1">
-      <h1 class="leader-3">sound finder</h1>
-      <p class="text-large">Find soundcloud users just like <span class="text-yellow">you.</span></p>
+    <section class="text-center fullscreen move-in move-out-right" data-pane="1">
+      <h1 class="leader-3 fade-in">sound finder</h1>
+      <p class="text-large fade-in">Find soundcloud users just like <span class="text-yellow">you.</span></p>
       <form class="username-form js-search-form leader-half">
         <label for="username">
-          enter a soundcloud username:
-          <input type="text" class="js-search-input username-search block text-large text-green" id="username" placeholder="soundcloud username..." autocomplete="off" autofocus>
+          <span class="fade-in">enter a soundcloud username:</span>
+          <input type="text" class="js-search-input fade-in username-search block text-large text-green" id="username" placeholder="soundcloud username..." autocomplete="off" autofocus>
         </label>
         <button type="submit" class="js-search-submit hide"></button>
       </form>
       <div class="shapes">
-        <a href="/similar/edapollo" data-color="yellow" data-username="edapollo" class="js-shape shape square square-yellow"></a>
-        <a href="/similar/xlr8r" data-color="red" data-username="xlr8r" class="js-shape shape square square-red"></a>
-        <a href="/similar/ghostly" data-color="blue" data-username="ghostly" class="js-shape shape square square-blue"></a>
-        <a href="/similar/kisses" data-color="green" data-username="kisses" class="js-shape shape circle circle-green"></a>
-        <a href="/similar/thesoft" data-color="yellow" data-username="thesoft" class="js-shape shape circle circle-yellow"></a>
-        <a href="/similar/emune" data-color="green" data-username="emune" class="js-shape shape triangle triangle-green"></a>
-        <a href="/similar/leifpodhajsky" data-color="yellow" data-username="leifpodhajsky" class="js-shape shape triangle triangle-yellow"></a>
-        <a href="/similar/mndsgn" data-color="blue" data-username="mndsgn" class="js-shape shape triangle triangle-blue"></a>
-        <a href="/similar/philip-grass" data-color="green" data-username="philip-grass" class="js-shape shape squiggle squiggle-green"></a>
-        <a href="/similar/dzasterpeace" data-color="yellow" data-username="dzasterpeace" class="js-shape shape squiggle squiggle-yellow"></a>
-        <a href="/similar/paulcpederson" data-color="red" data-username="paulcpederson" class="js-shape shape squiggle squiggle-red"></a>
+        <a href="/edapollo/" data-color="yellow" data-username="edapollo" class="js-shape fade-in shape square square-yellow"></a>
+        <a href="/xlr8r/" data-color="red" data-username="xlr8r" class="js-shape fade-in shape square square-red"></a>
+        <a href="/ghostly/" data-color="blue" data-username="ghostly" class="js-shape fade-in shape square square-blue"></a>
+        <a href="/kisses/" data-color="green" data-username="kisses" class="js-shape fade-in shape circle circle-green"></a>
+        <a href="/thesoft/" data-color="yellow" data-username="thesoft" class="js-shape fade-in shape circle circle-yellow"></a>
+        <a href="/emune/" data-color="green" data-username="emune" class="js-shape fade-in shape triangle triangle-green"></a>
+        <a href="/leifpodhajsky/" data-color="yellow" data-username="leifpodhajsky" class="js-shape fade-in shape triangle triangle-yellow"></a>
+        <a href="/mndsgn/" data-color="blue" data-username="mndsgn" class="js-shape fade-in shape triangle triangle-blue"></a>
+        <a href="/philip-grass/" data-color="green" data-username="philip-grass" class="js-shape fade-in shape squiggle squiggle-green"></a>
+        <a href="/dzasterpeace/" data-color="yellow" data-username="dzasterpeace" class="js-shape fade-in shape squiggle squiggle-yellow"></a>
+        <a href="/paulcpederson/" data-color="red" data-username="paulcpederson" class="js-shape fade-in shape squiggle squiggle-red"></a>
       </div>
     </section>
 
@@ -75,7 +75,7 @@
     <!-- Similar Users Container -->
     <section class="js-user-wrap user-wrap fullscreen move-in move-out-right" data-pane="3">
       <div class="hide">
-        <a class="user fade-in js-play-likes js-similar-user-template" href="#" data-id="{{id}}">
+        <a class="user fade-in js-play-likes js-similar-user-template" href="/{{permalink}}/play/" data-id="{{id}}" data-username="{{permalink}}">
           <h4 class="user-text">{{full_name}}</h4>
           <p class="user-text">{{city}}</p>
           <span class="user-avatar" style="background-image: url({{avatar_url}})"></span>
