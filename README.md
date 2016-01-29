@@ -4,6 +4,14 @@
 
 The goal is to allow soundcloud users to find other users that have similar taste in music. Obviously not in production yet. Stay posted.
 
+## Routes
+
+| Url | Description                                   |
+| --- | --------------------------------------------- |
+| `/` | page with a input so you can enter a username |
+| `/:user/` | page with info about a user, and users similar to them |
+| `/:user/play/` | page with a player for that users favorites |
+
 ## Install
 `npm install`
 
