@@ -35,6 +35,11 @@ $transition: transform $transition-time $easing-function, opacity $transition-ti
   @include animation-duration(.75s);
 }
 
+@for $n from 1 through 28 {
+  $delay: ($n * .1) + .75;
+  .fade-in:nth-child(#{$n}) { @include animation-delay($delay * 1s); }
+}
+
 @include keyframes (fade-in) {
   0%   { opacity: 0; }
   100% { opacity: 1; }

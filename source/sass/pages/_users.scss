@@ -15,12 +15,6 @@
   color: rgba(255,255,255,.85);
 }
 
-// stagger fade in for the similar users
-@for $n from 1 through 28 {
-  $delay: ($n * .1) + .75;
-  .user:nth-child(#{$n}) { @include animation-delay($delay * 1s); }
-}
-
 .user-avatar {
   @include prefixer(filter, grayscale(100%), webkit moz spec);
   position: absolute;
