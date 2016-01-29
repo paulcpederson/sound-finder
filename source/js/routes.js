@@ -1,6 +1,6 @@
 import routeMatcher from 'route-matcher'
 import events from 'pub-sub'
-
+import sc from 'sound-cloud'
 
 let match = routeMatcher.routeMatcher
 let url = document.location.pathname + '/'
@@ -11,11 +11,20 @@ let user = match('/:username/').parse(url)
 let play = match('/:username/play/').parse(url)
 
 if (home) {
-  console.log('show home page')
+  events.emit('pane', 1)
 } else if (user) {
-  console.log('matches user: ', user)
+  events.emit('users:find', user.username)
+  events.emit('pane', 2)
 } else if (play) {
-  console.log('play user: ', play)
+  sc.userID(play.username)
+  .catch((err) => {
+    events.emit('users:404', 'Error finding username. Try again, butterfingers...')
+    console.error(err.stack)
+  })
+  .then(user => {
+    events.emit('player:new', user.id)
+    events.emit('pane', 4)
+  })
 } else {
-  console.log('show 404')
+  events.emit('users:404', 'Error finding username. Try again, butterfingers...')
 }
