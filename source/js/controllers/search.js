@@ -1,3 +1,4 @@
+import pushState from '../lib/push-state'
 import events from 'pub-sub'
 import $ from '$'
 
@@ -15,7 +16,9 @@ function changeInputColor (newColor) {
 // trigger search on submit
 $('.js-search-form').on('submit', (e) => {
   e.preventDefault()
-  events.emit('users:find', searchInput.value)
+  let username = searchInput.value
+  pushState(`${username}'s similar users`, `/${username}/`)
+  events.emit('users:find', username)
   events.emit('pane', 2)
 })
 
