@@ -26,3 +26,5 @@ import usersController from './controllers/similar-users.js'
 * Parse URL
 */
 import router from './routes.js'
+router()
+window.addEventListener('popstate', router)
