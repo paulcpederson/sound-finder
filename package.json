@@ -29,7 +29,7 @@
     "html": "cp source/*.* build/",
     "prestart": "mkdir -p build && npm-run-all img html sass",
     "start": "parallelshell 'rerun-script' 'npm run js -- -w' 'npm run sass -- -w' 'live-server --entry-file=200.html build'",
-    "deploy": "npm run prestart && npm run js && surge -p build/",
+    "deploy": "npm run prestart && npm run js && surge -p build/ -d soundfinder.io",
     "test": "standard source/js/**/*.js"
   },
   "author": "Paul C Pederson <paul.c.pederson@gmail.com> (http://paulcpederson.com/)",
