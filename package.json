@@ -55,6 +55,6 @@
     "scss-utils": "1.0.0",
     "simplifyify": "^2.0.1",
     "standard": "*",
-    "surge": "^0.14.3"
+    "surge": "^0.17.7"
   }
 }
