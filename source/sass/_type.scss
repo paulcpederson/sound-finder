@@ -1,4 +1,15 @@
-$font-stack: 'Proxima Nova Soft';
+$font-stack: 'Proxima Nova Soft', 'Proxima Nova', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+@font-face {
+  font-family: 'Proxima Nova Soft';
+  font-weight: 400;
+  font-style: normal;
+  src: url('/304550_0_0.eot');
+  src: url('/304550_0_0.eot?#iefix') format('embedded-opentype'),
+       url('/304550_0_0.woff2') format('woff2'),
+       url('/304550_0_0.woff') format('woff'),
+       url('/304550_0_0.ttf') format('truetype');
+}
 
 body, html {
   margin: 0;

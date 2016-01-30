@@ -26,7 +26,7 @@
     "js:production": "npm run js -- -m",
     "sass": "node-sass source/sass/ -o build/ --include-path node_modules/ -q",
     "img": "imagemin-newer source/img/ build",
-    "html": "cp source/*.* build/",
+    "html": "cp source/*.* build/ && cp source/fonts/* build/",
     "prestart": "mkdir -p build && npm-run-all img html sass",
     "start": "parallelshell 'rerun-script' 'npm run js -- -w' 'npm run sass -- -w' 'live-server --entry-file=200.html build'",
     "deploy": "npm run prestart && npm run js && surge -p build/ -d soundfinder.io",
