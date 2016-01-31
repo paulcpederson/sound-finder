@@ -1,6 +1,5 @@
 import events from 'pub-sub'
 import Template from '../lib/template'
-import $ from '$'
 
 let $users = document.querySelector('.js-user-wrap')
 let template = Template(document.querySelector('.js-similar-user-template'))

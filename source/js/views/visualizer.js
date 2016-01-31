@@ -5,7 +5,6 @@ import Wave from '../lib/wave'
 
 var canvas = document.querySelector('.js-loader-canvas')
 var ctx = canvas.getContext('2d')
-let timer = false
 
 var wave = Wave({
   canvas,
@@ -28,7 +27,7 @@ function renderFrame () {
   if (sum > 3000) { amplitude = 1800 }
 
   wave.addDrop(amplitude)
-  requestAnimationFrame(renderFrame)
+  window.requestAnimationFrame(renderFrame)
 }
 
 function renderLoop () {
@@ -38,7 +37,7 @@ function renderLoop () {
 
 events.on('player:new', (id) => {
   renderFrame()
-  timer = setInterval(renderLoop, 30)
+  setInterval(renderLoop, 30)
 })
 
 // events.on('player:next', () => { })

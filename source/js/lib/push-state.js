@@ -5,7 +5,7 @@
 */
 function pushState (title, url) {
   let formattedTitle = `SoundFinder | ${title}`
-  history.pushState({}, formattedTitle, url)
+  window.history.pushState({}, formattedTitle, url)
   document.title = formattedTitle
 }
 
