@@ -36,8 +36,10 @@ npm test
 
 For now, tests whether js complies with [Standard](https://github.com/feross/standard).
 
-## Deploy to Surge
+## Deploy
 
 ```
 npm run deploy
 ```
+
+Deploys site to soundfinder.io with [surge.sh](https://surge.sh/).
