@@ -1,8 +1,8 @@
+![Sound Finder](https://cloud.githubusercontent.com/assets/1031758/12703095/c191c7ce-c7ee-11e5-9a49-8a8d0cea3a46.png)
+
 # Sound Finder
 
 > Find your kindred music spirits.
-
-The goal is to allow soundcloud users to find other users that have similar taste in music. Obviously not in production yet. Stay posted.
 
 ## Routes
 
