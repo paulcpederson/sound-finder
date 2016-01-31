@@ -41,7 +41,3 @@ For now, tests whether js complies with [Standard](https://github.com/feross/sta
 ```
 npm run deploy
 ```
-
-## Tech Stack
-
-Uses [Babel](https://babeljs.io/) and [Browserify](http://browserify.org/) for JavaScript. SASS is handled with [node-sass](https://github.com/sass/node-sass#usage-1). All tasks are handled with npm scripts. To learn more, go read [this](http://paulcpederson.com/articles/npm-run/).
