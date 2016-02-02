@@ -6,25 +6,25 @@ import polyfill from 'array.from'
 /**
 * Import Views
 */
-import panesView from './views/panes.js'
-import loaderView from './views/loader.js'
-import playerView from './views/player.js'
-import usersView from './views/similar-users.js'
-import infoView from './views/info.js'
-import visualizer from './views/visualizer.js'
+import panesView from './views/panes'
+import loaderView from './views/loader'
+import playerView from './views/player'
+import usersView from './views/similar-users'
+import infoView from './views/info'
+import visualizer from './views/visualizer'
 
 /**
 * Import Controllers
 */
-import infoController from './controllers/info.js'
-import loaderController from './controllers/loader.js'
-import searchController from './controllers/search.js'
-import playerController from './controllers/player.js'
-import usersController from './controllers/similar-users.js'
+import infoController from './controllers/info'
+import loaderController from './controllers/loader'
+import searchController from './controllers/search'
+import playerController from './controllers/player'
+import usersController from './controllers/similar-users'
 
 /**
 * Parse URL
 */
-import router from './routes.js'
+import router from './routes'
 router()
 window.addEventListener('popstate', router)
