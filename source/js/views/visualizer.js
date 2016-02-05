@@ -3,7 +3,7 @@ import colors from '../lib/colors'
 import player from '../lib/player'
 import Wave from '../lib/wave'
 
-var canvas = document.querySelector('.js-loader-canvas')
+var canvas = document.querySelector('.js-player-canvas')
 var ctx = canvas.getContext('2d')
 
 var wave = Wave({
