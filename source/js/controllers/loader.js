@@ -12,8 +12,8 @@ emitter.on('data', (percentage, message) => {
   events.emit('loader:update', {percentage: percentage, message: message})
 })
 
-emitter.on('done', (users) => {
-  events.emit('users:updated', users)
+emitter.on('done', (users, username) => {
+  events.emit('users:updated', users, username)
   events.emit('pane', 3)
 })
 

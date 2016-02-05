@@ -19,8 +19,14 @@ function parseRoute () {
     events.emit('pane', 1)
   } else if (user) {
     document.title = `${user.username}'s similar users`
-    events.emit('users:find', user.username)
-    events.emit('pane', 2)
+    // if we already found the similar users, just show them
+    let previousUser = document.querySelector('.js-user-wrap')
+    if (user.username === previousUser.dataset.username) {
+      events.emit('pane', 3)
+    } else {
+      events.emit('users:find', user.username)
+      events.emit('pane', 2)
+    }
   } else if (play) {
     document.title = `${play.username}'s favorites`
     sc.userID(play.username)

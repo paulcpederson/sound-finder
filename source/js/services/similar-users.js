@@ -73,7 +73,7 @@ let getFriends = (username, ee) => {
     return rank(favoriters, username, ee)
   })
 
-  .then(favoriters => ee.emit('done', favoriters))
+  .then(favoriters => ee.emit('done', favoriters, username))
 
   .catch(err => {
     console.log(err, err.stack)

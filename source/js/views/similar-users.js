@@ -18,6 +18,7 @@ function append (node) {
   $users.appendChild(node)
 }
 
-events.on('users:updated', (data) => {
+events.on('users:updated', (data, username) => {
+  document.querySelector('.js-user-wrap').dataset.username = username
   data.map(defaults).map(template).forEach(append)
 })
