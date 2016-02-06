@@ -1,7 +1,8 @@
 /**
 * Polyfills
 */
-import polyfill from 'array.from'
+import fromPolyfill from 'array.from'
+import fetchPolyfill from 'whatwg-fetch'
 
 /**
 * Import Views
