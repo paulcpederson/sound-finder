@@ -46,7 +46,6 @@
   "devDependencies": {
     "babelify": "5.0.4",
     "imagemin-newer": "^1.0.1",
-    "inline-block-grid": "^0.1.0",
     "live-server": "^0.9.1",
     "node-sass": "^3.4.2",
     "npm-run-all": "^1.5.0",
