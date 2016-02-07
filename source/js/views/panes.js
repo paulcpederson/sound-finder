@@ -10,7 +10,7 @@ let previous = 1
  */
 events.on('pane', (n) => {
   $panes.forEach(el => {
-    let pane = parseInt(el.dataset.pane, 10)
+    let pane = parseInt(el.getAttribute('data-pane'), 10)
     let $el = $(el)
     if (pane < n) {
       $el.addClass('move-out-left')

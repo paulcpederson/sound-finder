@@ -32,8 +32,8 @@ $(searchInput).on('keyup', (e) => {
 })
 
 $('.js-shape').on('mouseover', (e) => {
-  searchInput.value = e.target.dataset.username
-  changeInputColor(`${e.target.dataset.color}`)
+  searchInput.value = e.target.getAttribute('data-username')
+  changeInputColor(e.target.getAttribute('data-color'))
 })
 
 $('.js-shape').on('mouseout', (e) => {

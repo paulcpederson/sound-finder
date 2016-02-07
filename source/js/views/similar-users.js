@@ -19,6 +19,6 @@ function append (node) {
 }
 
 events.on('users:updated', (data, username) => {
-  document.querySelector('.js-user-wrap').dataset.username = username
+  document.querySelector('.js-user-wrap').setAttribute('data-username', username)
   data.map(defaults).map(template).forEach(append)
 })

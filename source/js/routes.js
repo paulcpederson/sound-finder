@@ -21,7 +21,7 @@ function parseRoute () {
     document.title = `${user.username}'s similar users`
     // if we already found the similar users, just show them
     let previousUser = document.querySelector('.js-user-wrap')
-    if (user.username === previousUser.dataset.username) {
+    if (user.username === previousUser.getAttribute('data-username')) {
       events.emit('pane', 3)
     } else {
       events.emit('users:find', user.username)
