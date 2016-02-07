@@ -48,7 +48,7 @@ let getFriends = (username, ee) => {
       loaded++
       ee.emit('data', loaded, `<small>finding users from</small><br>${randomUser.city}`)
       return favoriters
-    }).catch(err => console.log(err))
+    }).catch(err => console.error(err))
   }
 
   ee.emit('data', loaded, `<small>finding user</small><br> ${username}`)
@@ -76,7 +76,7 @@ let getFriends = (username, ee) => {
   .then(favoriters => ee.emit('done', favoriters, username))
 
   .catch(err => {
-    console.log(err, err.stack)
+    console.error(err.stack)
     ee.emit('error', 'error fetching similar users')
   })
 }
