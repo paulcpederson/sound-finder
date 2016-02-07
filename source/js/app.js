@@ -1,8 +1,9 @@
 /**
 * Polyfills
 */
-import fromPolyfill from 'array.from'
-import fetchPolyfill from 'whatwg-fetch'
+import 'array.from'
+import promise from 'es6-promise'
+promise.polyfill()
 
 /**
 * Import Views
