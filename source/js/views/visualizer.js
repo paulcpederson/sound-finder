@@ -4,46 +4,52 @@ import player from '../lib/player'
 import Wave from '../lib/wave'
 
 var canvas = document.querySelector('.js-player-canvas')
-var ctx = canvas.getContext('2d')
+var supportsCanvas = !!(canvas.getContext && canvas.getContext('2d'))
+var supportsAudioContext = (window.AudioContext || window.webkitAudioContext)
 
-var wave = Wave({
-  canvas,
-  viscosity: 0.95,
-  level: 0,
-  colors: [colors.blue, colors.blue]
-})
+// If your browser is awesome, let's make a visualizer!
+if (supportsCanvas && supportsAudioContext) {
+  var ctx = canvas.getContext('2d')
 
-let d = player.dataStream
+  var wave = Wave({
+    canvas,
+    viscosity: 0.95,
+    level: 0,
+    colors: [colors.blue, colors.blue]
+  })
 
-function renderFrame () {
-  player.analyser.getByteFrequencyData(d)
+  let d = player.dataStream
 
-  let sum = d.reduce((x, y) => x + y)
-  let amplitude = 0
+  function renderFrame () {
+    player.analyser.getByteFrequencyData(d)
 
-  if (sum > 2000) { amplitude = 800 }
-  if (sum > 2500) { amplitude = 1000 }
-  if (sum > 2750) { amplitude = 1250 }
-  if (sum > 3000) { amplitude = 1800 }
+    let sum = d.reduce((x, y) => x + y)
+    let amplitude = 0
 
-  wave.addDrop(amplitude)
-  window.requestAnimationFrame(renderFrame)
-}
+    if (sum > 2000) { amplitude = 800 }
+    if (sum > 2500) { amplitude = 1000 }
+    if (sum > 2750) { amplitude = 1250 }
+    if (sum > 3000) { amplitude = 1800 }
 
-function renderLoop () {
-  ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight)
-  wave.draw()
-}
+    wave.addDrop(amplitude)
+    window.requestAnimationFrame(renderFrame)
+  }
 
-events.on('player:new', (id) => {
-  renderFrame()
-  setInterval(renderLoop, 30)
-})
+  function renderLoop () {
+    ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight)
+    wave.draw()
+  }
 
-// events.on('player:next', () => { })
-// events.on('player:prev', () => { })
+  events.on('player:new', (id) => {
+    renderFrame()
+    setInterval(renderLoop, 30)
+  })
 
-player.ontimeupdate = function () {
-  let duration = isNaN(player.duration) ? 300 : player.duration
-  wave.setLevel(player.currentTime / duration * 100 + 1)
+  // events.on('player:next', () => { })
+  // events.on('player:prev', () => { })
+
+  player.ontimeupdate = function () {
+    let duration = isNaN(player.duration) ? 300 : player.duration
+    wave.setLevel(player.currentTime / duration * 100 + 1)
+  }
 }
