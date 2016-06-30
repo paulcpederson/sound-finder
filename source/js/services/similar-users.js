@@ -45,7 +45,7 @@ let getFriends = (username, ee) => {
     return favoriters.then(favoriters => {
       let usersWithCity = favoriters.filter(user => user.city)
       var randomUser = usersWithCity[Math.floor(Math.random() * usersWithCity.length)]
-      loaded++
+      loaded += 1.25
       ee.emit('data', loaded, `<small>finding users from</small><br>${randomUser.city}`)
       return favoriters
     }).catch(err => console.error(err))
