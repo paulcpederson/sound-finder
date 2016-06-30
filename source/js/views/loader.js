@@ -34,3 +34,7 @@ events.on('loader:update', ({percentage = 0, message = '', type = 'info'} = {}) 
 events.on('users:updated', _ => {
   clearInterval(timer)
 })
+
+events.on('player:new', (id) => {
+  ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight)
+})
