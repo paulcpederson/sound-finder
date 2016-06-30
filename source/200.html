@@ -44,10 +44,11 @@
     </section>
 
     <!-- Top Nav -->
-    <header class="navigation hidden">
+    <header class="navigation">
       <div class="container">
-        <a class="title ilb">Soundfinder</a> / similar / <a href="/similar/username">username</a>
-        <a href="#" class="ilb title right info-toggle" id="wtf">wtf</a>
+        <a class="js-nav js-nav-site hidden" href="/">Soundfinder</a>
+        <span class="js-nav js-nav-similar hidden"> / <a href="/" class="js-nav-similar-name">asdf</a></span>
+        <span class="js-nav js-nav-user hidden"> / <a href="soundcloud.com/user" class="js-nav js-nav-user-name">username</a></span>
       </div>
     </header>
 
@@ -112,8 +113,10 @@
       </div>
     </section>
 
-    <!-- Canvases for Loader, Visualization -->
+    <!-- Canvas for Loader -->
     <canvas class="js-loader-canvas loader-canvas"></canvas>
+
+    <!-- Canvas for Visualizer -->
     <canvas class="js-player-canvas loader-canvas"></canvas>
 
     <!-- Application JS -->

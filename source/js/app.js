@@ -9,6 +9,7 @@ promise.polyfill()
 * Import Views
 */
 import panesView from './views/panes'
+import navView from './views/nav'
 import loaderView from './views/loader'
 import playerView from './views/player'
 import usersView from './views/similar-users'
