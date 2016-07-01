@@ -2,10 +2,10 @@ import playlist from '../services/playlist'
 import player from '../lib/player'
 import events from 'pub-sub'
 import $ from '$'
-import mousetrap from 'mousetrap'
 
 let artist = document.querySelector('.js-player-artist')
 let title = document.querySelector('.js-player-title')
+let playerSection = document.querySelector('.js-player-section')
 let wrap = $('.js-player-wrap')
 let play = $('.js-play')
 let pause = $('.js-pause')
@@ -26,6 +26,7 @@ function load () {
 }
 
 events.on('player:new', (id) => {
+  playerSection.setAttribute('data-player', true)
   playlist(id).then(function (tracks) {
     player.tracks = tracks
     player.loadTrack()
@@ -47,6 +48,14 @@ events.on('player:play', () => {
   player.play()
 })
 
+events.on('player:toggle', () => {
+  if (play[0].classList.contains('hide')) {
+    events.emit('player:pause')
+  } else {
+    events.emit('player:play')
+  }
+})
+
 events.on('player:next', () => {
   if (++player.current > player.tracks.length - 1) {
     player.current = 0
@@ -59,16 +68,4 @@ events.on('player:prev', () => {
     player.current = player.tracks.length - 1
   }
   load()
-})
-
-player.addEventListener('ended', () => {
-  events.emit('player:next')
-})
-
-mousetrap.bind('right', () => {
-  events.emit('player:next')
-})
-
-mousetrap.bind('left', () => {
-  events.emit('player:prev')
 })

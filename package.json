@@ -40,7 +40,6 @@
     "dom-closest": "^0.2.0",
     "es6-promise": "^3.0.2",
     "mess": "^0.1.2",
-    "mousetrap": "^1.5.3",
     "object-assign": "^3.0.0",
     "route-matcher": "^0.1.0",
     "tiny-emitter": "^1.0.0"
