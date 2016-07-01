@@ -2,6 +2,7 @@ import playlist from '../services/playlist'
 import player from '../lib/player'
 import events from 'pub-sub'
 import $ from '$'
+import mousetrap from 'mousetrap'
 
 let artist = document.querySelector('.js-player-artist')
 let title = document.querySelector('.js-player-title')
@@ -62,4 +63,12 @@ events.on('player:prev', () => {
 
 player.addEventListener('ended', () => {
   events.emit('player:next')
+})
+
+mousetrap.bind('right', () => {
+  events.emit('player:next')
+})
+
+mousetrap.bind('left', () => {
+  events.emit('player:prev')
 })
