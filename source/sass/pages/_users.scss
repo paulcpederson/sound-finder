@@ -1,6 +1,6 @@
 
 .user-wrap {
-  background-color: rgba(33, 47, 75, 1);
+  background-color: $darker-blue;
 }
 
 .user {
@@ -21,7 +21,7 @@
   background-repeat: none;
   background-color: transparent;
   background-size: cover;
-  opacity: .3;
+  opacity: .5;
   top: 0;
   right: -1px;
   bottom: 0;
@@ -33,7 +33,7 @@
 .user-text {
   z-index: 2;
   position: relative;
-  opacity: .5;
+  opacity: .7;
 }
 
 .user:hover {

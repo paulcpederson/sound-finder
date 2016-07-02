@@ -6,11 +6,13 @@ let $text = $('.loading-message')
 var canvas = document.querySelector('.js-loader-canvas')
 var ctx = canvas.getContext('2d')
 let timer = false
+let navy = 'rgba(33, 47, 75, 1)'
 
 var wave = Wave({
   canvas,
   viscosity: 0.95,
-  level: 0
+  level: 0,
+  colors: [navy, navy]
 })
 
 function renderLoop () {
@@ -19,7 +21,7 @@ function renderLoop () {
 }
 
 events.on('users:find', _ => {
-  wave.addDrop(2000)
+  wave.addDrop(1800)
   timer = setInterval(renderLoop, 30)
 })
 
@@ -27,7 +29,7 @@ events.on('loader:update', ({percentage = 0, message = '', type = 'info'} = {}) 
   $text[0].innerHTML = message
   wave.setLevel(percentage)
   if (percentage % 25 === 0) {
-    wave.addDrop(2000)
+    wave.addDrop(1600)
   }
 })
 
