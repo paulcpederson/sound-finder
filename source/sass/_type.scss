@@ -38,3 +38,15 @@ a {
     outline: none;
   }
 }
+
+@media screen and (max-width: 720px) {
+  body, html {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body, html {
+    font-size: 14px;
+  }
+}
