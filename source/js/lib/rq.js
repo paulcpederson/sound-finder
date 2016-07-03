@@ -22,7 +22,8 @@ let rq = {
     return new Promise((resolve, reject) => {
       var xhr = new window.XMLHttpRequest()
       form = rq.encodeForm(form)
-      xhr.open('get', `${url}?${form}`, true)
+      let formattedUrl = form.length ? `${url}?${form}` : url
+      xhr.open('get', formattedUrl, true)
       xhr.responseType = 'json'
       xhr.onload = () => {
         if (xhr.status === 200 || xhr.status === 304) {

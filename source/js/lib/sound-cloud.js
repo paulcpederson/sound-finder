@@ -16,7 +16,13 @@ let client = clientId => {
       return rq.get(`http://api.soundcloud.com/${url}`, form)
     },
     /* Get user id from username */
-    userID: username => sc.request('resolve', { url: `http://soundcloud.com/${username}` }),
+    userID: username => {
+      return sc.request('resolve', {
+        url: `http://soundcloud.com/${username}`,
+        '_status_code_map[302]': 200
+      })
+      .then(response => rq.get(response.location))
+    },
     /* Get favorite tracks from user id */
     favorites: (userID, limit = 100) => sc.request(`users/${userID}/favorites`, {limit}),
     /* Get users who favorited a track by track id */

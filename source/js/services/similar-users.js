@@ -76,7 +76,7 @@ let getFriends = (username, ee) => {
   .then(favoriters => ee.emit('done', favoriters, username))
 
   .catch(err => {
-    console.error(err.stack)
+    console.error(err, err.stack)
     ee.emit('error', 'error fetching similar users')
   })
 }
