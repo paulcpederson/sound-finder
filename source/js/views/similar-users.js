@@ -6,7 +6,7 @@ let template = Template(document.querySelector('.js-similar-user-template'))
 
 function defaults (user) {
   user.avatar_url = user.avatar_url.replace('-large', '-t500x500')
-  if (user.avatar_url.includes('default_avatar_large.png')) {
+  if (user.avatar_url.indexOf('default_avatar_large.png') > -1) {
     user.avatar_url = `https://sigil.cupcake.io/${user.username}?w=600`
   }
   user.city = user.city || 'Earth'
