@@ -42,26 +42,14 @@
   display: block;
   position: absolute;
   background: url('triangle-green.svg') center no-repeat transparent;
+  width: 12vw;
+  height: 12vh;
+  background-size: contain;
 }
 
 .circle {
-  width: 105px;
-  height: 105px;
-}
-
-.squiggle {
-  width: 130px;
-  height: 40px;
-}
-
-.triangle {
-  width: 94px;
-  height: 94px;
-}
-
-.square {
-  width: 94px;
-  height: 94px;
+  width: 13vw;
+  height: 13vh;
 }
 
 .triangle-green {
@@ -148,4 +136,10 @@
   background-image: url('square-blue.svg');
   bottom: 25vh;
   right: 8vw;
+}
+
+@media screen and (max-height: 480px) {
+  .square-red {
+
+  }
 }
