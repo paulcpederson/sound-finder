@@ -31,6 +31,15 @@
   }
 }
 
+@media screen and (max-width: 680px) {
+  .big-text {
+    font-size: 3rem;
+    small, .small {
+      font-size: 2rem;
+    }
+  }
+}
+
 .bg-gray {
   background-color: $gray;
 }
