@@ -4,6 +4,7 @@ import $ from '$'
 let body = document.querySelector('body')
 let wrap = document.querySelector('.js-player-section')
 
+$('.js-player').on('ended', events.emit.bind(events, 'player:next'))
 $('.js-play').on('click', events.emit.bind(events, 'player:play'))
 $('.js-pause').on('click', events.emit.bind(events, 'player:pause'))
 $('.js-next').on('click', events.emit.bind(events, 'player:next'))
