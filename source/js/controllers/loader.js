@@ -17,4 +17,8 @@ emitter.on('done', (users, username) => {
   events.emit('pane', 3)
 })
 
+emitter.on('user', user => {
+  events.emit('user:found', user)
+})
+
 events.on('users:find', username => similarUsers(username, emitter))

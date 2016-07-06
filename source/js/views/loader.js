@@ -6,7 +6,7 @@ let $text = $('.loading-message')
 var canvas = document.querySelector('.js-loader-canvas')
 var ctx = canvas.getContext('2d')
 let timer = false
-let navy = 'rgba(33, 47, 75, 1)'
+let navy = 'rgba(44, 194, 198, 1)'
 
 var wave = Wave({
   canvas,

@@ -87,6 +87,29 @@
 
     <!-- Similar Users Container -->
     <section class="js-user-wrap user-wrap fullscreen move-in move-out-right" data-pane="3">
+      <!-- main user -->
+      <div class="js-main-user-wrap"></div>
+
+      <!-- main user template -->
+      <div class="hide">
+        <div class="js-main-user-template fade-in main-user">
+          <div class="container flex">
+            <img src="{{avatar_url}}" alt="{{full_name}}" class="main-user-img">
+            <div class="flex-1 main-user-text">
+              <h3><a href="{{permalink_url}}">{{full_name}}</a></h3>
+              <p>{{description}}</p>
+              <p class="text-small">{{city}}, {{country}}</p>
+              <p class="text-small trailer-2 leader-1">
+                <span class="stat-icon stat-icon-favorites">{{public_favorites_count}}</span>
+                <span class="stat-icon stat-icon-followers">{{followers_count}}</span>
+                <span class="stat-icon stat-icon-tracks">{{track_count}}</span>
+              </p>
+              <a href="/{{permalink}}/play/" data-id="{{id}}" data-username="{{permalink}}" class="btn">play favorites</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="hide">
         <a class="user fade-in js-play-likes js-similar-user-template" href="/{{permalink}}/play/" data-id="{{id}}" data-username="{{permalink}}">
           <h4 class="user-text">{{full_name}}</h4>

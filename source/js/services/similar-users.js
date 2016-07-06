@@ -60,6 +60,7 @@ let getFriends = (username, ee) => {
   .then(user => {
     loaded += 10
     ee.emit('data', loaded, `<small>getting favorites for</small><br> ${username}`)
+    ee.emit('user', user)
     return sc.favorites(user.id)
   })
 

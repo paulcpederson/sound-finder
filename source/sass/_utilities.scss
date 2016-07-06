@@ -12,6 +12,7 @@
 // Text helpers
 .text-center { text-align: center; }
 .text-large  { font-size: 1.5em; }
+.text-small  { font-size: .875em; }
 .text-yellow { color: $yellow; }
 .text-green  { color: $teal; }
 .text-blue   { color: $blue; }
@@ -60,10 +61,9 @@
 .block { display: block; }
 .ilb { display: inline-block; }
 
-.leader-half { margin-top: 5vh; }
-.leader-1    { margin-top: 10vh; }
-.leader-2    { margin-top: 20vh; }
-.leader-3    { margin-top: 30vh; }
+
+.leader-1    { margin-top: 1rem; }
+.trailer-2   { margin-bottom: 2rem; }
 
 .container {
   width: 100%;
@@ -73,6 +73,27 @@
   padding-right: 3vw;
   position: relative;
   z-index: 2;
+}
+
+.container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and  (max-width: 480px) {
+  .flex {
+    flex-direction: column;
+  }
+}
+
+.flex-1 {
+  flex: 1 1 auto;
 }
 
 .fullscreen {

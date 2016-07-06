@@ -1,6 +1,65 @@
 
+.main-user {
+  padding: 7rem 0 3rem 0;
+  position: relative;
+}
+
+.main-user-text {
+  margin-bottom: 2rem;
+}
+
+@media screen and  (max-width: 480px) {
+  .main-user-text {
+    margin: 2rem;
+  }
+}
+
+.stat-icon {
+  display: inline-block;
+  margin-right: 1.5rem;
+  padding-left: 1.25rem;
+  background: url('play.svg') no-repeat left center transparent;
+  opacity: .8;
+}
+
+.stat-icon-favorites { background-image: url('likes.svg') }
+.stat-icon-followers { background-image: url('followers.svg') }
+.stat-icon-tracks    { background-image: url('tracks.svg') }
+
+.btn {
+  padding: 0.85rem 0.8rem 0.75rem 0.85rem;
+  border: 3px solid $blue;
+  border-radius: 2rem;
+  color: $blue;
+  font-size: .875rem;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1), inset 3px 3px 0 rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0);
+  transition: all 200ms linear;
+}
+
+.btn:hover {
+  background-color: $blue;
+  color: $white;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.1), inset 6px 6px 0 rgba(0, 0, 0, 0);
+}
+
+.main-user-img {
+  width: 275px;
+  height: 275px;
+  margin-right: 2rem;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 960px) {
+  .main-user-img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
 .user-wrap {
-  background-color: $darker-blue;
+  background: url('user-bg.svg') no-repeat top center $gray;
+  background-size: cover;
 }
 
 .user {
@@ -8,7 +67,7 @@
   height: 25vw;
   position: relative;
   float: left;
-  margin: 0;
+  margin: 0 0 -1px 0;
   background-color: $darker-blue;
   box-sizing: border-box;
   padding: 15vw 3vw 3vw 3vw;
