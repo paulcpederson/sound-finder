@@ -53,7 +53,7 @@
     </header>
 
     <!-- Title Screen and Search -->
-    <section class="text-center fullscreen move-in move-out-right bg-gray" data-pane="1">
+    <section class="text-center fullscreen flex flex-column flex-align-center move-in move-out-right bg-gray" data-pane="1">
       <h1 class="leader-3 fade-in home-text">sound finder</h1>
       <p class="text-large fade-in home-text">Find soundcloud users just like <span class="text-yellow">you.</span></p>
       <form class="username-form js-search-form leader-half">
@@ -87,8 +87,12 @@
 
     <!-- Similar Users Container -->
     <section class="js-user-wrap user-wrap fullscreen move-in move-out-right" data-pane="3">
+
       <!-- main user -->
       <div class="js-main-user-wrap"></div>
+
+      <!-- similar users -->
+      <div class="js-similar-user-wrap"></div>
 
       <!-- main user template -->
       <div class="hide">
@@ -110,6 +114,7 @@
         </div>
       </div>
 
+      <!-- similar user template -->
       <div class="hide">
         <a class="user fade-in js-play-likes js-similar-user-template" href="/{{permalink}}/play/" data-id="{{id}}" data-username="{{permalink}}">
           <h4 class="user-text">{{full_name}}</h4>

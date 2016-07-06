@@ -4,7 +4,7 @@ import $ from '$'
 import closest from 'dom-closest'
 
 // Users get added dynamically, so attach events to the users div
-$('.js-user-wrap').on('click', (e) => {
+$('.js-similar-user-wrap').on('click', (e) => {
 
   e.preventDefault()
   let user = closest(e.target, '.js-play-likes')

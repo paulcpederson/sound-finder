@@ -1,7 +1,7 @@
 import events from 'pub-sub'
 import Template from '../lib/template'
 
-let $users = document.querySelector('.js-user-wrap')
+let $users = document.querySelector('.js-similar-user-wrap')
 let template = Template(document.querySelector('.js-similar-user-template'))
 let mainTemplate = Template(document.querySelector('.js-main-user-template'))
 let mainWrap = document.querySelector('.js-main-user-wrap')

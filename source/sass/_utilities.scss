@@ -96,6 +96,14 @@
   flex: 1 1 auto;
 }
 
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-align-center {
+  justify-content: center;
+}
+
 .fullscreen {
   top: 0;
   right: 0;
