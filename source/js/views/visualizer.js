@@ -6,6 +6,7 @@ import Wave from '../lib/wave'
 var canvas = document.querySelector('.js-player-canvas')
 var supportsCanvas = !!(canvas.getContext && canvas.getContext('2d'))
 var supportsAudioContext = (window.AudioContext || window.webkitAudioContext)
+var visualizerActive = false
 
 // If your browser is awesome, let's make a visualizer!
 if (supportsCanvas && supportsAudioContext) {
@@ -41,8 +42,11 @@ if (supportsCanvas && supportsAudioContext) {
   }
 
   events.on('player:new', (id) => {
-    renderFrame()
-    setInterval(renderLoop, 30)
+    if (!visualizerActive) {
+      visualizerActive = true
+      renderFrame()
+      setInterval(renderLoop, 30)
+    }
   })
 
   // events.on('player:next', () => { })
