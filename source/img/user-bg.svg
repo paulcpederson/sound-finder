@@ -3,49 +3,47 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="1280px" height="680px" viewBox="0 0 1280 680" enable-background="new 0 0 1280 680" xml:space="preserve">
-<rect x="628.084" y="20.847" opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="55.153" height="55.153"/>
-<rect x="501.084" y="286.847" opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="55.153" height="55.153"/>
-<rect x="559.085" y="595" opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="55.153" height="55.152"/>
-<rect x="1114.406" y="250.373" opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="55.153" height="55.153"/>
-<rect x="202.542" y="579.185" opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="55.153" height="55.153"/>
-<polygon opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+<rect x="628.084" y="20.847" opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" enable-background="new    " width="55.153" height="55.153"/>
+<rect x="501.084" y="286.847" opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" enable-background="new    " width="55.153" height="55.153"/>
+<rect x="559.085" y="595" opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" enable-background="new    " width="55.153" height="55.152"/>
+<rect x="1114.406" y="250.373" opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" enable-background="new    " width="55.152" height="55.153"/>
+<rect x="202.542" y="579.185" opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" enable-background="new    " width="55.153" height="55.153"/>
+<polygon opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" enable-background="new    " points="
 	79.563,107.039 109.794,54.677 140.025,107.039 "/>
-<polygon opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
-	1049.876,612.305 1080.106,559.942 1110.337,612.305 "/>
-<polygon opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+<polygon opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" enable-background="new    " points="
+	1049.876,612.305 1080.105,559.942 1110.337,612.305 "/>
+<polygon opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" enable-background="new    " points="
 	350.784,447.941 381.014,395.579 411.245,447.941 "/>
-<polygon opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+<polygon opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" enable-background="new    " points="
 	855.627,104 885.857,51.638 916.088,104 "/>
-<polygon opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+<polygon opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" enable-background="new    " points="
 	865.439,369.952 895.67,317.59 925.9,369.952 "/>
 <g opacity="0.05">
 	<path fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M98.774,325.163
-		c6.148,0,6.148,12.566,12.296,12.566c6.148,0,6.148-12.566,12.297-12.566c6.146,0,6.146,12.566,12.293,12.566
-		c6.149,0,6.149-12.566,12.298-12.566c6.149,0,6.149,12.566,12.298,12.566c6.151,0,6.151-12.566,12.302-12.566
-		c6.15,0,6.149,12.566,12.299,12.566"/>
+		c6.148,0,6.148,12.565,12.296,12.565s6.148-12.565,12.297-12.565c6.146,0,6.146,12.565,12.293,12.565
+		c6.149,0,6.149-12.565,12.298-12.565s6.149,12.565,12.298,12.565c6.151,0,6.151-12.565,12.302-12.565
+		c6.15,0,6.149,12.565,12.299,12.565"/>
 </g>
 <g opacity="0.05">
 	<path fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M394.872,61.867
-		c6.148,0,6.148,12.566,12.296,12.566c6.148,0,6.148-12.566,12.297-12.566c6.146,0,6.146,12.566,12.293,12.566
-		c6.149,0,6.149-12.566,12.298-12.566s6.148,12.566,12.298,12.566c6.151,0,6.151-12.566,12.302-12.566
-		c6.15,0,6.148,12.566,12.299,12.566"/>
+		c6.147,0,6.147,12.566,12.296,12.566s6.148-12.566,12.297-12.566c6.146,0,6.146,12.566,12.293,12.566
+		c6.149,0,6.149-12.566,12.298-12.566c6.149,0,6.148,12.566,12.298,12.566c6.151,0,6.151-12.566,12.303-12.566
+		c6.149,0,6.147,12.566,12.299,12.566"/>
 </g>
 <g opacity="0.05">
 	<path fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M373.589,561.479
 		c6.148,0,6.148,12.566,12.296,12.566c6.148,0,6.148-12.566,12.297-12.566c6.146,0,6.146,12.566,12.292,12.566
-		c6.149,0,6.149-12.566,12.299-12.566s6.148,12.566,12.298,12.566c6.151,0,6.151-12.566,12.302-12.566s6.148,12.566,12.299,12.566"
-		/>
+		c6.149,0,6.149-12.566,12.3-12.566c6.149,0,6.147,12.566,12.298,12.566s6.15-12.566,12.302-12.566s6.148,12.566,12.299,12.566"/>
 </g>
 <g opacity="0.05">
 	<path fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M680.474,289.539
-		c6.148,0,6.148,12.566,12.297,12.566c6.147,0,6.147-12.566,12.297-12.566c6.146,0,6.146,12.566,12.293,12.566
-		c6.148,0,6.148-12.566,12.298-12.566s6.149,12.566,12.299,12.566c6.15,0,6.15-12.566,12.302-12.566
-		c6.149,0,6.147,12.566,12.299,12.566"/>
+		c6.148,0,6.148,12.566,12.298,12.566c6.146,0,6.146-12.566,12.297-12.566c6.146,0,6.146,12.566,12.293,12.566
+		s6.147-12.566,12.298-12.566c6.149,0,6.148,12.566,12.299,12.566s6.15-12.566,12.302-12.566c6.149,0,6.147,12.566,12.299,12.566"/>
 </g>
-<circle opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="1071.09" cy="81.191" r="32.464"/>
-<circle opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="83.119" cy="490.011" r="32.464"/>
-<circle opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="296.339" cy="200.867" r="32.464"/>
-<circle opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="806.148" cy="491.19" r="32.464"/>
+<circle opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" enable-background="new    " cx="1107.627" cy="91.376" r="32.464"/>
+<circle opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" enable-background="new    " cx="83.119" cy="490.011" r="32.464"/>
+<circle opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" enable-background="new    " cx="296.339" cy="200.867" r="32.464"/>
+<circle opacity="0.05" fill="none" stroke="#231F20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" enable-background="new    " cx="806.148" cy="491.19" r="32.464"/>
 <g opacity="0.06">
 	<polygon points="649,464.147 632,454.332 649,444.52 	"/>
 	<polygon points="632,464.147 615,454.333 632,444.52 	"/>
@@ -55,8 +53,8 @@
 	<polygon points="978.835,224.369 961.835,214.554 978.835,204.741 	"/>
 </g>
 <g opacity="0.06">
-	<polygon points="1162,153 1145,143.185 1162,133.372 	"/>
-	<polygon points="1145,153 1128,143.186 1145,133.372 	"/>
+	<polygon points="1242.38,153.301 1225.38,143.486 1242.38,133.673 	"/>
+	<polygon points="1225.38,153.301 1208.38,143.487 1225.38,133.673 	"/>
 </g>
 <g opacity="0.06">
 	<polygon points="293,91 276,81.185 293,71.372 	"/>
@@ -70,12 +68,16 @@
 	<polygon points="312,323 329,332.815 312,342.628 	"/>
 	<polygon points="329,323 346,332.814 329,342.628 	"/>
 </g>
-<polygon opacity="0.05" points="742.34,136.949 758.34,146.186 742.34,155.421 "/>
-<polygon opacity="0.05" points="1177,434.527 1193,443.765 1177,453 "/>
-<polygon opacity="0.05" points="188.317,449.142 204.317,458.379 188.317,467.614 "/>
+<polygon opacity="0.05" enable-background="new    " points="742.34,136.949 758.34,146.186 742.34,155.421 "/>
+<polygon opacity="0.05" enable-background="new    " points="1177,434.527 1193,443.765 1177,453 "/>
+<polygon opacity="0.05" enable-background="new    " points="188.317,449.142 204.317,458.379 188.317,467.614 "/>
 <g opacity="0.05">
 	<rect x="517" y="142" width="4" height="18"/>
 	<rect x="525" y="142" width="4" height="18"/>
+</g>
+<g opacity="0.05">
+	<rect x="60.263" y="213.309" width="4" height="18"/>
+	<rect x="68.263" y="213.309" width="4" height="18"/>
 </g>
 <g opacity="0.05">
 	<rect x="899" y="619" width="4" height="18"/>
