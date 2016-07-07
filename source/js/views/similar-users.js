@@ -28,5 +28,6 @@ events.on('user:found', user => {
 
 events.on('users:updated', (data, username) => {
   document.querySelector('.js-user-wrap').setAttribute('data-username', username)
+  $users.innerHTML = ''
   data.map(defaults).map(template).forEach(append)
 })
