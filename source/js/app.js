@@ -19,6 +19,7 @@ import visualizer from './views/visualizer'
 /**
 * Import Controllers
 */
+import navController from './controllers/nav'
 import infoController from './controllers/info'
 import loaderController from './controllers/loader'
 import searchController from './controllers/search'
