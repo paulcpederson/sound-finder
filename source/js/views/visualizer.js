@@ -7,6 +7,7 @@ var canvas = document.querySelector('.js-player-canvas')
 var supportsCanvas = !!(canvas.getContext && canvas.getContext('2d'))
 var supportsAudioContext = (window.AudioContext || window.webkitAudioContext)
 var visualizerActive = false
+let d;
 
 // If your browser is awesome, let's make a visualizer!
 if (supportsCanvas && supportsAudioContext) {
@@ -18,8 +19,6 @@ if (supportsCanvas && supportsAudioContext) {
     level: 0,
     colors: [colors.blue, colors.blue]
   })
-
-  let d = player.dataStream
 
   function renderFrame () {
     player.analyser.getByteFrequencyData(d)
@@ -41,16 +40,18 @@ if (supportsCanvas && supportsAudioContext) {
     wave.draw()
   }
 
-  events.on('player:new', (id) => {
+  events.on('player:play', (id) => {
     if (!visualizerActive) {
       visualizerActive = true
-      renderFrame()
-      setInterval(renderLoop, 30)
+      const context = player.getContext() || {};
+      player.analyser = context.analyser;
+      d = context.dataStream
+      if (d) {
+        renderFrame()
+        setInterval(renderLoop, 30)
+      }
     }
   })
-
-  // events.on('player:next', () => { })
-  // events.on('player:prev', () => { })
 
   player.ontimeupdate = function () {
     let duration = isNaN(player.duration) ? 300 : player.duration

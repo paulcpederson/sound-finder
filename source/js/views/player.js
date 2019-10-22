@@ -19,19 +19,12 @@ function renderInfo () {
   title.href = current.permalink_url
 }
 
-function load () {
-  player.loadTrack()
-  renderInfo()
-  events.emit('player:play')
-}
-
 events.on('player:new', (id) => {
   playerSection.setAttribute('data-player', true)
   playlist(id).then(function (tracks) {
     player.tracks = tracks
     player.loadTrack()
     renderInfo()
-    events.emit('player:play')
   })
   .catch(err => console.log(err))
 })
@@ -60,12 +53,16 @@ events.on('player:next', () => {
   if (++player.current > player.tracks.length - 1) {
     player.current = 0
   }
-  load()
+  player.loadTrack()
+  renderInfo()
+  events.emit('player:play')
 })
 
 events.on('player:prev', () => {
   if (--player.current < 0) {
     player.current = player.tracks.length - 1
   }
-  load()
+  player.loadTrack()
+  renderInfo()
+  events.emit('player:play')
 })

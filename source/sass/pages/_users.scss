@@ -46,6 +46,7 @@
 
 .main-user-img {
   width: 250px;
+  min-width: 250px;
   height: 250px;
   border-radius: 50%;
 }
@@ -53,6 +54,7 @@
 @media screen and (max-width: 960px) {
   .main-user-img {
     width: 200px;
+    min-width: 200px;
     height: 200px;
   }
 }
